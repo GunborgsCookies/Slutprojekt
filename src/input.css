@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@layer base {
+  p,li,td {
+    @apply text-sm;
+  }
+}
+
+@layer utilities {
+
+  /* === GLOBALA INSTÄLLNINGAR === */
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .font-cormorant {
+    font-family: "Cormorant Garamond", serif;
+  }
+
+  .font-source {
+    font-family: "Source Sans Pro", sans-serif;
+  }
+
+  /* Animerad bakgrund */
+  @keyframes gradientPulse {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .animate-gradient {
+    background: linear-gradient(to right, #0b1a2d, #2b3c5a);
+    background-size: 200% 200%;
+    animation: gradientPulse 6s ease-in-out infinite;
+  }
+
+
+
+
+
+
+}
+
+
+
+  /* === MATCH-SWIPER / MATCHKORT === */
+
+  .match-status {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #a68f55;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .match-teams {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.25rem;
+    margin: 0.5rem 0;
+    font-family: "Cormorant Garamond", serif;
+    text-transform: uppercase;
+  }
+
+  .vs-only {
+    color: #A68F55;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .match-logo {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  .match-result-label {
+    font-size: 10px;
+    margin-bottom: 0.15rem;
+    color: #a68f55;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .match-result {
+    font-size: 12px;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-button svg {
+    height: 24px;
+    width: 24px;
+    color: #a68f55;
+    transition: color 0.2s;
+  }
+
+  .nav-button:hover svg {
+    color: #8c773f;
+  }
+
+  
+
+#prevBtn {
+  left: -60px;
+}
+
+#nextBtn {
+  right: -60px;
+}
+
+.nyheter-prev {
+  left: -60px;
+}
+
+.nyheter-next {
+  right: -60px;
+}
+
+
+
+
+/* Mobilanpassning */
+@media (max-width: 639px) {
+  #prevBtn {
+    left: 8px;
+  }
+
+  #nextBtn {
+    right: 8px;
+  }
+}
+
+.match-card {
+  width: 168px;
+  height: 291px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #0A121A, #0A121A);
+  border: 1px solid #a68f55;
+  margin-bottom: 50px;
+  pointer-events: auto; /* Aktivera interaktion vid hover */
+  cursor: pointer; /* Visar pekare */
+}
+
+
+
+
+
+
+/* SWIPER*/
+
+.swiper-pagination-bullet {
+  background-color: #a5a5a5 !important;
+  opacity: 0.6;
+  border-radius: 9999px;
+  width: 12px;
+  height: 12px;
+  margin: 0 4px; /* bara horisontell marginal */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #a68f55 !important;
+  opacity: 1;
+  margin: 0 4px;
+}
+@media (max-width: 640px) {
+
+/* Swiper HERO*/
+  .match-card {
+    margin-bottom: 200px; 
+  }
+    .hero-pagination {
+    margin-bottom: 150px !important;
+  }
+  /* Swiper mobil NYHETER*/
+    .nyheter-pagination {
+    margin-bottom: -40px !important;
+  }
+}
+
+  /* KORT HERO BAKGRUND */
+
+  .match-card.avslutad.vinst {
+    background: linear-gradient(135deg, #3C5A14, #1e662e);
+  }
+
+  .match-card.avslutad.forlust {
+    background: linear-gradient(135deg, #C44536, #580909);
+  }
+
+  .match-card.avslutad.oavgjort {
+    background: linear-gradient(135deg, #FFF7F8, #8a8a8a);
+  }
+
+#referat-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-size: 14px;
+  color: #1a1a1a;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+@layer components {
+  .heading-section {
+    @apply text-[28px] md:text-[36px] lg:text-[40px] font-semibold uppercase text-[#A68F55] mb-[40px] text-left;
+  }
+
+  
+}
+
+
+
+

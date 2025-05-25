@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fiumelago Adminpanel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+      background: #0a121a;
+      color: #fff;
+      padding: 0;
+    }
+    header {
+      background: #0a121a;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #a68f55;
+    }
+    header img {
+      height: 50px;
+    }
+    header a {
+      color: #a68f55;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #a68f55;
+      margin: 2rem 0;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .match-card, .add-section {
+      background: #fff;
+      color: #0a121a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .match-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: #a68f55;
+      margin-bottom: 1rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1rem;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    textarea {
+      height: 100px;
+    }
+    button {
+      background-color: #a68f55;
+      color: #0a121a;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    button:hover {
+      background-color: #8c773f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/assets/fiumelago_logotyp.png" alt="Fiumelago klubbmärke" />
+    <a href="/src\index.html">Tillbaka till hemsidan</a>
+  </header>
+
+  <h1>Adminpanel – Matcher</h1>
+
+  <div id="match-container"></div>
+
+  <div class="add-section">
+    <h3>Lägg till ny match</h3>
+    <label>Datum:<input type="date" id="new-datum" /></label>
+    <label>Tid:<input type="time" id="new-tid" /></label>
+    <label>Motståndare:<input type="text" id="new-motstandare" /></label>
+    <label>Logga (sökväg):<input type="text" id="new-logga" /></label>
+    <button onclick="addNewMatch()">Lägg till match</button>
+  </div>
+
+  <div style="text-align: center;">
+    <button onclick="exportData()">Exportera data.json</button>
+  </div>
+
+  <script>
+    const correctPassword = "admin";
+    const inputPassword = prompt("Skriv in adminlösenord:");
+    if (inputPassword !== correctPassword) {
+      alert("Fel lösenord!");
+      document.body.innerHTML = "<h2 style='text-align:center; padding:2rem;'>Åtkomst nekad</h2>";
+      throw new Error("Fel lösenord");
+    }
+
+    let matchData = [];
+
+    fetch("./data/data.json")
+      .then(res => res.json())
+      .then(data => {
+        matchData = data;
+        const container = document.getElementById("match-container");
+        data.matcher.forEach((match, i) => {
+          renderMatchCard(container, match, i);
+        });
+      });
+
+    function renderMatchCard(container, match, i) {
+      const escapedReferat = (match.referat || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      const div = document.createElement("div");
+      div.className = "match-card";
+      div.innerHTML = `
+        <h3>${match.datum} – ${match.motstandare}</h3>
+        <label>Resultat:
+          <input type="text" value="${match.resultat || ""}" onchange="updateField(${i}, 'resultat', this.value)" />
+        </label>
+        <label>Spelad:
+          <input type="checkbox" ${match.spelad ? "checked" : ""} onchange="updateField(${i}, 'spelad', this.checked)" />
+        </label>
+
+        <label>Första halvlek:
+          <textarea id="halvlek1_${i}" oninput="generateReferat(${i})">${match.halvlek1 || ""}</textarea>
+        </label>
+        <label>Andra halvlek:
+          <textarea id="halvlek2_${i}" oninput="generateReferat(${i})">${match.halvlek2 || ""}</textarea>
+        </label>
+        <label>Målgörare (en per rad):
+          <textarea id="malgore_${i}" oninput="generateReferat(${i})">${match.malgore || ""}</textarea>
+        </label>
+        <label>Matchens lirare:
+          <input type="text" id="lirare_${i}" value="${match.lirare || ""}" oninput="generateReferat(${i})" />
+        </label>
+        <label>Lirarbild (URL):
+          <input type="text" id="lirareBild_${i}" value="${match.lirareBild || ""}" oninput="generateReferat(${i})" />
+        </label>
+
+        <div style="font-size: 12px; background: #f3f3f3; padding: 1rem; margin-top: 1rem; color: #000; border-radius: 8px;">
+          <strong>Förhandsgranskning:</strong>
+          <div id="preview_${i}">${match.referat || ""}</div>
+        </div>
+      `;
+      container.appendChild(div);
+    }
+
+    function generateReferat(i) {
+      const halvlek1 = document.getElementById(`halvlek1_${i}`).value;
+      const halvlek2 = document.getElementById(`halvlek2_${i}`).value;
+      const malgore = document.getElementById(`malgore_${i}`).value;
+      const lirare = document.getElementById(`lirare_${i}`).value;
+      const bild = document.getElementById(`lirareBild_${i}`).value;
+
+      const målHTML = malgore
+        .split('\n')
+        .filter(line => line.trim())
+        .map(line => `<li>${line.trim()}</li>`)
+        .join('');
+
+      const referatHTML = `
+        <h4>Första halvlek</h4>
+        <p>${halvlek1}</p>
+
+        <h4>Andra halvlek</h4>
+        <p>${halvlek2}</p>
+
+        <h4>Målgörare</h4>
+        <ul>${målHTML}</ul>
+
+        <h4>Matchens lirare</h4>
+        <p>${lirare}</p>
+        ${bild ? `<img src="${bild}" alt="Matchens lirare" style="max-width:150px; margin-top:0.5rem;"/>` : ""}
+      `;
+
+      matchData.matcher[i].referat = referatHTML;
+      matchData.matcher[i].halvlek1 = halvlek1;
+      matchData.matcher[i].halvlek2 = halvlek2;
+      matchData.matcher[i].malgore = malgore;
+      matchData.matcher[i].lirare = lirare;
+      matchData.matcher[i].lirareBild = bild;
+
+      document.getElementById(`preview_${i}`).innerHTML = referatHTML;
+    }
+
+    function updateField(index, field, value) {
+      matchData.matcher[index][field] = value;
+    }
+
+    function addNewMatch() {
+      const datum = document.getElementById("new-datum").value;
+      const tid = document.getElementById("new-tid").value;
+      const motstandare = document.getElementById("new-motstandare").value;
+      const logga = document.getElementById("new-logga").value;
+
+      const id = `match_${matchData.matcher.length + 1}`;
+      const nyMatch = {
+        id,
+        datum,
+        tid,
+        motstandare,
+        resultat: "",
+        referat: "",
+        spelad: false,
+        logga
+      };
+
+      matchData.matcher.push(nyMatch);
+      const container = document.getElementById("match-container");
+      renderMatchCard(container, nyMatch, matchData.matcher.length - 1);
+
+      document.getElementById("new-datum").value = "";
+      document.getElementById("new-tid").value = "";
+      document.getElementById("new-motstandare").value = "";
+      document.getElementById("new-logga").value = "";
+    }
+
+    function exportData() {
+      const blob = new Blob([JSON.stringify(matchData, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "data.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

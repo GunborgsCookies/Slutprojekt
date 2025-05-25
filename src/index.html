@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <link rel="icon" type="image/png" href="/assets/fiumelago_logotyp.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fiumelago - Glädje, passion & hybris sedan 2008</title>
+
+    <!-- Tailwind CSS -->
+    <link href="/src/output.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
+
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- Väder -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <!-- Tabellscroll-->
+    <link href="https://cdn.jsdelivr.net/npm/overlayscrollbars/css/OverlayScrollbars.min.css" rel="stylesheet"/>
+
+    
+    <!-- JavaScript -->
+    <script src="/src/js/hero.js" defer></script>
+
+    <script type="module">import { openReferatModal } from '/src/js/modal.js';</script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <script src="/src/js/weather.js" defer></script> 
+    <script src="/src/js/tabellscroll.js" defer></script>
+    <script src="/src/js/nyheter.js" defer></script>
+    <script src="/src/js/spelare.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+     <script src="/src/js/artesspelare.js" defer></script>
+    
+
+  </head>
+
+  <body class="bg-[#DADADA] text-[#0b1a2d] font-cormorant">
+
+    <header class="h-[100px] sticky top-0 z-50 bg-[#0A121A] text-white">
+      <div class="w-full flex items-center justify-between flex-wrap px-6 md:px-32 h-full gap-4">
+        
+        <!-- LOGGA -->
+        <div class="flex-shrink-0 flex items-center gap-2 min-w-0 overflow-hidden">
+          <img src="/assets/fiumelago_logotyp.png" alt="Fiumelago klubbmärke" class="h-[60px] w-auto" />
+          <div class="leading-tight text-left overflow-hidden">
+          <div class="text-center text-[32px] md:text-[48px] font-medium uppercase truncate">Fiumelago</div>
+           <p class="text-center text-[10px] md:text-[12px] font-medium truncate">Glädje, passion & hybris sedan 2008</p>
+
+          </div>
+        </div>
+
+      <!-- DESKTOPMENY -->
+      <div class="hidden md:flex items-center gap-6 ml-auto">
+        <nav aria-label="Huvudmeny" class="flex gap-[20px] text-[14px] font-semibold uppercase tracking-[0.05em]">
+          <a href="#" class="hover:text-[#A68F55]">Hem</a>
+          <a href="#nyheter" class="hover:text-[#A68F55]">Nyheter</a>
+          <a href="#laget" class="hover:text-[#A68F55]">Laget</a>
+          <a href="#historia" class="hover:text-[#A68F55]">Historia</a>
+          <a href="#trophy-room" class="hover:text-[#A68F55]">Trophy Room</a>
+          <a href="#kontakt" class="hover:text-[#A68F55]">Kontakt</a>
+        </nav>
+      </div>
+
+        <!-- HAMBURGERKNAPP (mobil) -->
+        <div class="md:hidden flex items-center ml-auto">
+          <button id="menu-toggle" class="z-[10001] flex items-center justify-center w-7 h-7" aria-label="Meny" aria-controls="mobile-menu" aria-expanded="false">
+            
+            <!-- Hamburger -->
+            <svg id="hamburger-icon" class="w-7 h-7 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+
+            <!-- Stäng-ikon -->
+            <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+
+          </button>
+        </div>
+
+
+    </header>
+    <!-- VÄDERRAD -->
+<div class="bg-[#0A121A] text-white text-sm py-2 px-6 md:px-32 flex items-center justify-end gap-4">
+  <span class="text-xs uppercase tracking-wide text-white/50">Väder</span>
+  <i id="weather-icon" class="wi text-xl"></i>
+  <span id="weather-temp">14°C</span>
+</div>
+    <!-- MOBILMENY -->
+    <nav id="mobile-menu" aria-label="Mobilmeny" class="hidden fixed top-[100px] left-0 w-full h-[calc(100vh-100px)] bg-[#0A121A] flex flex-col items-center justify-center gap-6 text-white text-lg font-semibold uppercase z-[60]">
+      <a href="#" class="hover:text-[#A68F55]">Hem</a>
+      <a href="#nyheter" class="hover:text-[#A68F55]">Nyheter</a>
+      <a href="#laget" class="hover:text-[#A68F55]">Laget</a>
+      <a href="#historia" class="hover:text-[#A68F55]">Historia</a>
+      <a href="#trophy-room" class="hover:text-[#A68F55]">Trophy Room</a>
+      <a href="#kontakt" class="hover:text-[#A68F55]">Kontakt</a>
+    </nav>
+
+
+
+                                                            <!-- HERO -->
+
+<section id="hero" aria-label="Hero-sektion med matchinformation" class="relative min-h-[700px] md:min-h-screen text-white overflow-hidden z-0">
+
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full bg-[url('/assets/hero_background.png')] bg-cover bg-center bg-no-repeat">
+      <div class="w-full h-full bg-gradient-to-br from-[#0B1C2C]/40 via-[#1F2E47]/40 to-[#1a0a0b]/40"></div>
+    </div>
+  </div>
+
+  <!-- INNEHÅLL HERO -->
+  <div class="relative z-10 flex flex-col items-center max-w-[970px] mx-auto px-4 pt-[90px] text-center">
+
+    <div id="match-info" class="w-full"></div>
+    <p id="hero-match-details" class="text-[24px] leading-tight mt-[4px] mb-[32px]"></p>
+
+   <!-- Matchkort -->
+<div class="relative z-10 mt-[32px] px-4 sm:px-0 w-full">
+  
+  <!-- Vänster -->
+  <button id="prevBtn"
+    class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-[-24px] z-20"
+    aria-label="Föregående match">
+    <svg xmlns="http://www.w3.org/2000/svg"
+      class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors"
+      viewBox="0 0 24 24" fill="currentColor">
+      <path fill-rule="evenodd"
+        d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z"
+        clip-rule="evenodd" />
+    </svg>
+  </button>
+
+  <!-- Swiper-container -->
+  <div class="relative max-w-[960px] mx-auto">
+    <swiper-container id="matchcards" init="false" class="w-full"></swiper-container>
+
+    <!-- Pagination-->
+   <div class="swiper-pagination hero-pagination sm:hidden flex justify-center"></div>
+
+      <!-- Höger pil-->
+      <button id="nextBtn"
+        class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-[-24px] z-20"
+        aria-label="Nästa match">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors"
+          viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M8.22 19.78a.75.75 0 0 1 0-1.06L13.94 13l-5.72-5.72a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z"
+            clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+</section>
+
+
+                                                                       <!-- MODAL-->
+
+<div id="referat-modal" aria-label="Matchreferat-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden" onclick="closeModalIfClickedOutside(event)" tabindex="-1">
+
+  <div class="flex items-center justify-center min-h-screen px-4">
+    <div
+      class="bg-white text-[#0A121A] shadow-xl w-full max-w-[95vw] sm:max-w-2xl p-4 sm:p-6 relative"
+      onclick="event.stopPropagation()"
+    >
+      <!-- Kryss (stäng-knapp) -->
+      <button id="closeModalBtn"
+        class="flex items-center justify-center absolute top-3 right-3 z-20"
+        aria-label="Stäng modal">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#A68F55] hover:text-[#8C773F] transition-colors" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M6.22 6.22a.75.75 0 0 1 1.06 0L12 10.94l4.72-4.72a.75.75 0 1 1 1.06 1.06L13.06 12l4.72 4.72a.75.75 0 1 1-1.06 1.06L12 13.06l-4.72 4.72a.75.75 0 0 1-1.06-1.06L10.94 12 6.22 7.28a.75.75 0 0 1 0-1.06z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      <!-- Titel -->
+      <h3 class="text-xl sm:text-2xl font-semibold font-cormorant text-[#A68F55] mb-3 sm:mb-4 text-center">
+        Matchreferat
+      </h3>
+
+      <!-- Referatinnehåll -->
+      <div id="referat-content"
+        class="font-source text-base sm:text-lg leading-loose text-[#0A121A] text-left space-y-4 max-h-[70vh] overflow-y-auto pr-2">
+        <!-- Referatet laddas här -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                                                  <!-- TABELL -->
+
+
+<section id="tabellen" aria-label="Tabell över lagens poängställning" class="w-full bg-[#F9F9F9] pt-[90px] pb-0">
+  <div class="max-w-[960px] mx-auto px-4">
+             <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-[60px]">
+      Tabellen
+    </h2>
+
+    <!-- Scroll-wrapper -->
+    <div id="table-scroll-wrapper" class="overflow-x-auto">
+      <table class="min-w-[800px] w-full text-left border-collapse">
+        <thead class="bg-[#0A121A] text-white text-[12px] uppercase tracking-wide font-cormorant">
+          <tr>
+            <th class="py-3 px-2">#</th>
+            <th class="py-3 px-2">Lag</th>
+            <th class="py-3 px-2">Matcher</th>
+            <th class="py-3 px-2">Vinster</th>
+            <th class="py-3 px-2">Oavgj.</th>
+            <th class="py-3 px-2">Förl.</th>
+            <th class="py-3 px-2">Gjorda</th>
+            <th class="py-3 px-2">Insläppta</th>
+            <th class="py-3 px-2">+/-</th>
+            <th class="py-3 px-2">Poäng</th>
+          </tr>
+        </thead>
+        <tbody class="text-[14px] font-source">
+          <tr class="bg-white">
+            <td class="py-3 px-2">1</td>
+            <td class="flex items-center gap-2 py-3 px-2">
+              <img src="/assets/icons/gruesome.png" alt="Gruesome FourFourTwosome" class="h-5 w-5" />
+              Gruesome FourFourTwosome
+            </td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">2</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">0</td>
+            <td class="py-3 px-2">10</td>
+            <td class="py-3 px-2">7</td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">7</td>
+          </tr>
+
+          <tr class="bg-[#f2f2f2]">
+            <td class="py-3 px-2">2</td>
+            <td class="flex items-center gap-2 py-3 px-2">
+              <img src="/assets/icons/tudorarms.png" alt="Tudor Arms FC" class="h-5 w-5" />
+              Tudor Arms FC
+            </td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">2</td>
+            <td class="py-3 px-2">0</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">11</td>
+            <td class="py-3 px-2">6</td>
+            <td class="py-3 px-2">5</td>
+            <td class="py-3 px-2">6</td>
+          </tr>
+
+          <tr class="bg-white">
+            <td class="py-3 px-2">3</td>
+            <td class="flex items-center gap-2 py-3 px-2">
+              <img src="/assets/icons/lv.png" alt="LV United" class="h-5 w-5" />
+              LV United
+            </td>
+            <td class="py-3 px-2">2</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">0</td>
+            <td class="py-3 px-2">5</td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">2</td>
+            <td class="py-3 px-2">4</td>
+          </tr>
+
+          <tr class="bg-[#f2f2f2]">
+            <td class="py-3 px-2">4</td>
+            <td class="flex items-center gap-2 py-3 px-2">
+              <img src="/assets/icons/pichangeros.png" alt="Pichangeros FC" class="h-5 w-5" />
+              Pichangeros FC
+            </td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">6</td>
+            <td class="py-3 px-2">6</td>
+            <td class="py-3 px-2">0</td>
+            <td class="py-3 px-2">4</td>
+          </tr>
+
+          <tr class="bg-white">
+            <td class="py-3 px-2">5</td>
+            <td class="flex items-center gap-2 py-3 px-2">
+              <img src="/assets/fiumelago_logotyp.png" alt="Fiumelago" class="h-5 w-5" />
+              Fiumelago
+            </td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">5</td>
+            <td class="py-3 px-2">6</td>
+            <td class="py-3 px-2">-1</td>
+            <td class="py-3 px-2">4</td>
+          </tr>
+
+          <tr class="bg-[#f2f2f2]">
+            <td class="py-3 px-2">6</td>
+            <td class="flex items-center gap-2 py-3 px-2">
+              <img src="/assets/icons/tullingedragons.png" alt="Tullinge Dragons FC" class="h-5 w-5" />
+              Tullinge Dragons FC
+            </td>
+            <td class="py-3 px-2">2</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">0</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">7</td>
+            <td class="py-3 px-2">5</td>
+            <td class="py-3 px-2">2</td>
+            <td class="py-3 px-2">3</td>
+          </tr>
+
+          <tr class="bg-white">
+            <td class="py-3 px-2">7</td>
+            <td class="flex items-center gap-2 py-3 px-2">
+              <img src="/assets/icons/138.png" alt="Stensö United" class="h-5 w-5" />
+              Stensö United
+            </td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">0</td>
+            <td class="py-3 px-2">2</td>
+            <td class="py-3 px-2">1</td>
+            <td class="py-3 px-2">5</td>
+            <td class="py-3 px-2">8</td>
+            <td class="py-3 px-2">-3</td>
+            <td class="py-3 px-2">2</td>
+          </tr>
+
+          <tr class="bg-[#f2f2f2]">
+            <td class="py-3 px-2">8</td>
+            <td class="flex items-center gap-2 py-3 px-2">
+              <img src="/assets/icons/ac.png" alt="Associazione Calcio Gärdet" class="h-5 w-5" />
+              Associazione Calcio Gärdet
+            </td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">0</td>
+            <td class="py-3 px-2">0</td>
+            <td class="py-3 px-2">3</td>
+            <td class="py-3 px-2">7</td>
+            <td class="py-3 px-2">15</td>
+            <td class="py-3 px-2">-8</td>
+            <td class="py-3 px-2">0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+                                                                  <!-- NYHETER-->
+
+<section id="nyheter" class="bg-[#F9F9F9] py-[90px]">
+  <div class="max-w-[970px] mx-auto px-4">
+    <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-[60px]">
+      Nyheter
+    </h2>
+
+    <div class="relative">
+      <!-- Vänster pil -->
+      <button class="nyheter-prev absolute top-1/2 -translate-y-1/2 left-[-20px] z-50 text-[#A68F55] hover:text-[#8C773F]" aria-label="Föregående nyhet">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      <!-- Swiper -->
+      <div class="swiper nyhets-swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Kort 1 -->
+          <div class="swiper-slide h-[500px] bg-white p-5 flex flex-col text-black">
+            <img src="/assets/nyhet1.jpg" class="w-full h-[180px] object-cover mb-5" />
+            <div class="flex flex-col justify-between flex-1 overflow-hidden">
+              <h3 class="text-lg font-cormorant text-[#A68F55] font-semibold leading-tight line-clamp-2 mb-2">
+                Årets första träning
+              </h3>
+              <p class="text-sm font-source leading-relaxed line-clamp-3 mb-4">
+                Årets första träning är på gång, och vi hoppas på fler spelare än koner.
+              </p>
+              <a href="#" class="text-sm font-source underline hover:text-[#A68F55]">Läs mer ></a>
+            </div>
+          </div>
+
+          <!-- Kort 2 -->
+          <div class="swiper-slide h-[500px] bg-white p-5 flex flex-col text-black">
+            <img src="/assets/nyhet2.jpg" class="w-full h-[180px] object-cover mb-5" />
+            <div class="flex flex-col justify-between flex-1 overflow-hidden">
+              <h3 class="text-lg font-cormorant text-[#A68F55] font-semibold leading-tight line-clamp-2 mb-2">
+                Officiellt: Simon Davidsson klar för Fiumelago
+              </h3>
+              <p class="text-sm font-source leading-relaxed line-clamp-3 mb-4">
+                Efter år av spontana inhopp, sena sms och “kan du spela i kväll?”-förfrågningar har vi nu gjort det officiellt: Simon Davidsson är klar för Fiumelago.
+              </p>
+              <a href="#" class="text-sm font-source underline hover:text-[#A68F55]">Läs mer ></a>
+            </div>
+          </div>
+
+          <!-- Kort 3 -->
+          <div class="swiper-slide h-[500px] bg-white p-5 flex flex-col text-black">
+            <img src="/assets/blur.jpg" class="w-full h-[180px] object-cover mb-5" />
+            <div class="flex flex-col justify-between flex-1 overflow-hidden">
+              <h3 class="text-lg font-cormorant text-[#A68F55] font-semibold leading-tight line-clamp-2 mb-2">
+                Ny logga på gång
+              </h3>
+              <p class="text-sm font-source leading-relaxed line-clamp-3 mb-4">
+                En uppdaterad logotyp håller på att tas fram för att spegla klubbens framtid – modern men trogen traditionen.
+              </p>
+              <a href="#" class="text-sm font-source underline hover:text-[#A68F55]">Läs mer ></a>
+            </div>
+          </div>
+
+          <!-- Kort 4 -->
+          <div class="swiper-slide h-[500px] bg-white p-5 flex flex-col text-black">
+            <img src="/assets/Kuriosa.jpg" class="w-full h-[180px] object-cover mb-5" />
+            <div class="flex flex-col justify-between flex-1 overflow-hidden">
+              <h3 class="text-lg font-cormorant text-[#A68F55] font-semibold leading-tight line-clamp-2 mb-2">
+                Steffe gör comeback i sommar
+              </h3>
+              <p class="text-sm font-source leading-relaxed line-clamp-3 mb-4">
+                Damma av matchstället och värm upp skorna – Steffe är tillbaka på planen i sommar. Gammal är äldst?
+              </p>
+              <a href="#" class="text-sm font-source underline hover:text-[#A68F55]">Läs mer ></a>
+            </div>
+          </div>
+
+        </div>
+        <!-- Mobilpagination -->
+        <div class="swiper-pagination nyheter-pagination sm:hidden flex justify-center mt-4"></div>
+      </div>
+
+      <!-- Höger pil -->
+      <button class="nyheter-next absolute top-1/2 -translate-y-1/2 right-[-20px] z-50 text-[#A68F55] hover:text-[#8C773F]" aria-label="Nästa nyhet">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M8.22 19.78a.75.75 0 0 1 0-1.06L13.94 13l-5.72-5.72a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+                                                                            <!-- LAGET SWIPER -->
+
+<section id="laget" class="w-full bg-[#F9F9F9] pt-[100px] pb-0">
+
+  <div class="relative bg-gradient-to-br from-[#0B1C2C] via-[#1F2E47] to-[#0A121A] h-[400px] flex flex-col items-center justify-end overflow-hidden">
+    
+      
+  <div class="absolute inset-0 flex flex-col items-center justify-end mb-[120px] text-white/10 font-cormorant font-bold tracking-wide uppercase pointer-events-none z-0 leading-[1]">
+    <span class="text-[70px] md:text-[90px] lg:text-[120px]">FORZA FIUME</span>
+    <span class="text-[70px] md:text-[90px] lg:text-[120px]">PER SEMPRE</span>
+  </div>
+
+
+<div class="swiper laget-swiper w-full max-w-[960px] px-4 flex-1 flex items-end z-10">
+  <div class="swiper-wrapper h-full items-end">
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play1.png" alt="Porträtt av Patrik Kenney, försvarare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Patrik Kenney" data-position="Försvarare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play2.png" alt="Porträtt av Jesper Kenney, försvarare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Jesper Kenney" data-position="Försvarare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play3.png" alt="Porträtt av Filip Jäätmaa, försvarare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Filip Jäätmaa" data-position="Försvarare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play11.png" alt="Porträtt av Viktor Sundin, målvakt" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Viktor Sundin" data-position="Målvakt" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play4.png" alt="Porträtt av Johan Bartoli, mittfältare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Johan Bartoli" data-position="Mittfältare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play2.png" alt="Porträtt av Joakim Folstad, mittfältare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Joakim Folstad" data-position="Mittfältare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play1.png" alt="Porträtt av Mathias Eidehall, mittfältare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Mathias Eidehall" data-position="Mittfältare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play11.png" alt="Porträtt av Viktor Sundin, mittfältare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Viktor Sundin" data-position="Mittfältare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play3.png" alt="Porträtt av Richard Hansson, anfallare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Richard Hansson" data-position="Anfallare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play4.png" alt="Porträtt av Viktor Köpcke, anfallare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Viktor Köpcke" data-position="Anfallare" />
+    </div>
+    <div class="swiper-slide flex justify-center items-end h-full">
+      <img src="/assets/play2.png" alt="Porträtt av Alexander Haanpää, anfallare" class="player-img h-[350px] object-bottom object-contain scale-100 opacity-90 transition-transform transition-opacity duration-300 origin-bottom" data-player="Alexander Haanpää" data-position="Anfallare" />
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- INFO Blå RAD-->
+    <div class="w-full bg-[#0A121A] text-white py-3 px-4 flex items-center justify-center gap-10 z-20">
+      <div class="custom-prev text-[#A68F55] hover:text-[#8C773F] text-2xl cursor-pointer select-none">&lt;</div>
+      <div class="text-center min-w-[160px]">
+        <h3 id="player-name" class="text-[24px] font-cormorant text-[#A68F55] min-h-[32px]">Simon Davidsson</h3>
+        <p id="player-position" class="text-sm font-source text-white uppercase min-h-[20px]">Mittfältare</p>
+      </div>
+      <div class="custom-next text-[#A68F55] hover:text-[#8C773F] text-2xl cursor-pointer select-none">&gt;</div>
+    </div>
+
+  </div>
+</section>
+
+                                                      <!-- LAGET -->
+
+<section class="w-full bg-[#F9F9F9] pt-[100px] pb-[80px]">
+  <div class="max-w-[960px] mx-auto px-4 text-[#0A121A]">
+    
+    <!-- Rubrik -->
+    <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-[24px]">
+      Laget
+    </h2>
+
+    <!-- Underrubrik -->
+    <h3 class="text-[24px] uppercase font-cormorant text-[#A68F55] mb-[56px]">
+      Prima Squadra 2025
+    </h3>
+
+    <!-- FLEX: Spelare + Bilder -->
+    <div class="flex flex-col lg:flex-row gap-[80px] items-start">
+
+      <!-- Spelarlista -->
+      <div class="w-full lg:w-1/2 flex flex-col gap-10 font-source">
+
+        
+        <!-- Målvakt -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Målvakt</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm">
+              <p class="font-semibold">V. Mattsson</p>
+              <p class="text-sm text-gray-600">2008, 185 matcher <br><span class="text-xs text-gray-400">(varav 96 som målvakt)</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Försvarare -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Försvarare</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">2. P. Kenney</p><p class="text-sm text-gray-600">2011, 119 matcher<br><span class="text-xs text-gray-400">(varav 6 som målvakt)</span></p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">5. J. Kenney</p><p class="text-sm text-gray-600">2008, 116 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">8. F. Jäätmaa (A)</p><p class="text-sm text-gray-600">2008, 201 matcher</p></div>
+          </div>
+        </div>
+
+        <!-- Mittfältare -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Mittfältare</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">7. A. Sundin</p><p class="text-sm text-gray-600">2008, 164 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">11. J. Bartoli (C)</p><p class="text-sm text-gray-600">2008, 73 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">12. J. Folstad</p><p class="text-sm text-gray-600">2008, 73 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">15. M. Eidehall</p><p class="text-sm text-gray-600">2008, 184 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">23. V. Sundin</p><p class="text-sm text-gray-600">2008, 185 matcher<br><span class="text-xs text-gray-400">(varav 104 som målvakt)</span></p></div>
+          </div>
+        </div>
+
+        <!-- Anfallare -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Anfallare</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">14. R. Hansson</p><p class="text-sm text-gray-600">2011, 137 matcher<br><span class="text-xs text-gray-400">(varav 4 som målvakt)</span></p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">21. V. Köpcke</p><p class="text-sm text-gray-600">2008, 148 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">22. A. Haanpää</p><p class="text-sm text-gray-600">2008, 171 matcher</p></div>
+          </div>
+        </div>
+
+        <!-- Pensionerade -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Pensionerade spelare</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">J. Agnepil</p><p class="text-sm text-gray-600">2008–2014, 56 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">N. Lindström</p><p class="text-sm text-gray-600">2008–2010, 31 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">M. Nygren</p><p class="text-sm text-gray-600">2008, 4 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">M. Roupe</p><p class="text-sm text-gray-600">2011–2016, 44 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">10. S. Söder</p><p class="text-sm text-gray-600">2011, 126 matcher</p></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bilder LAGET-->
+      <div class="w-full lg:w-1/2 flex flex-col gap-8 self-stretch">
+        <!-- Bild 1 -->
+        <figure class="bg-white p-4 shadow-sm">
+          <img src="/assets/Lagfoto2024.jpg" alt="Lagfoto 2024" class="w-full object-cover mb-6" />
+          <figcaption class="text-lg text-[#444] italic text-center leading-snug" style="font-family: 'Just Another Hand', cursive;">
+            Lagfoto 2024
+          </figcaption>
+        </figure>
+
+        <!-- Bild 2 -->
+        <figure class="bg-white p-4 shadow-sm">
+          <img src="/assets/Lagfoto2012.jpg" alt="Lagfoto 2012" class="w-full object-cover mb-6" />
+          <figcaption class="text-lg text-[#444] italic text-center leading-snug" style="font-family: 'Just Another Hand', cursive;">
+            Lagfoto 2012
+          </figcaption>
+        </figure>
+
+        <!-- Bild 3 -->
+        <figure class="bg-white p-4 shadow-sm">
+          <img src="/assets/Lagfoto2008.jpg" alt="Lagfoto 2008" class="w-full object-cover mb-6" />
+          <figcaption class="text-lg text-[#444] italic text-center leading-snug" style="font-family: 'Just Another Hand', cursive;">
+            Lagfoto 2008
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <!-- BAKGRUNDSBILD (LockerRoooM) -->
+  <div id="historia" class="relative w-full h-[400px] bg-fixed bg-center bg-cover bg-[url('/assets/LockerRoom.jpg')]">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1F2E47]/70 via-[#1F2E47]/70 to-[#1F2E47]/70"></div>
+  </div>
+
+                                            <!-- HISTORIA -->
+
+    <section class="w-full bg-[#E4E4E4] pt-[100px] pb-[80px]">
+      <div class="max-w-[960px] mx-auto px-4 text-[#0A121A]" x-data="{ loggaOpen: false }">
+        <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-[60px]">
+          Historia
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,340px)] gap-x-[80px] items-center">
+          <!-- TEXT -->
+          <div class="space-y-4 max-w-[620px]">
+            <h3 class="text-[24px] uppercase font-cormorant text-[#A68F55]">Fiumelago</h3>
+            <p class="font-cormorant italic text-[#A68F55] text-[18px]">Glädje, passion & hybris sedan 2008.</p>
+            <p class="font-source leading-relaxed">Vi är Fiumelago – ett lag som föddes ur kärleken till fotboll, vänskap och det enkla nöjet att jaga en boll på både grus och konstgräs. Sedan starten 2008 har vi kämpat oss genom serierna, alltid med ett leende på läpparna och en stor dos hjärta på planen.</p>
+            <p class="font-source leading-relaxed">Snart närmar vi oss 20 år tillsammans på planen – två decennier fyllda av gemenskap, minnen och fotbollsglädje. Från leriga matcher på Gubbängens IP till spännande slutomgångar på Hökarängens BP har vi samlat på oss minnen, mål och otaliga skratt.</p>
+            <p class="font-source leading-relaxed">Men Fiumelago är mer än resultat och statistik. Vi är en familj av spelare som stått sida vid sida i med- och motgång. Vi bygger vår identitet på långvariga relationer, lojalitet och en spelglädje som smittar av sig både på och utanför planen.</p>
+            <p class="font-source leading-relaxed">Vi är Fiumelago. Och vi fortsätter skriva vår historia – en match i taget.</p>
+          </div>
+
+          <!-- LOGGA -->
+          <div class="mt-12 lg:mt-0 flex justify-center lg:justify-end">
+            <img src="/assets/brodyr.png" alt="Brodyrmärke med örn, italiensk flagga och texten 'Fiumelago – Forza Fiume Per Sempre'" class="w-[200px] sm:w-[220px] md:w-[240px] max-w-full object-contain" style="filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));" />
+          </div>
+
+          <!-- ÖVRE RAMLINJE -->
+          <div class="lg:col-span-2">
+            <hr class="my-[40px] border-t border-[#C2B59B] w-full max-w-[960px] mx-auto" />
+          </div>
+
+          <!-- KURIOSA -->
+          <div class="lg:col-span-2">
+            <h3 class="text-[24px] uppercase font-cormorant mb-4 text-[#A68F55]">Kuriosa</h3>
+            <div class="flex flex-col md:flex-row md:gap-x-8 gap-y-8">
+              <div class="flex-1">
+                <p class="font-source font-semibold mb-1">Statistik genom åren (2008–2023)</p>
+                <ul class="font-source list-disc list-inside space-y-1">
+                  <li>Flest mål: A. Sundin (95)</li>
+                  <li>Flest assist: A. Sundin (69)</li>
+                  <li>Flest gula kort: Mattsson + Folstad (5)</li>
+                  <li>Flest röda kort: Haanpää (2)</li>
+                </ul>
+              </div>
+              <div class="flex-1">
+                <p class="font-source font-semibold mb-1">Historiska rivalmöten</p>
+                <ul class="font-source list-disc list-inside space-y-1">
+                  <li>Young Boys Älvsjö</li>
+                  <li>Claymoore United</li>
+                  <li>FC Schteek</li>
+                  <li>Les Bleus</li>
+                  <li>Lugano FC</li>
+                </ul>
+              </div>
+              <div class="flex-1">
+                <p class="font-source font-semibold mb-1">Motståndare vi minns</p>
+                <ul class="font-source list-disc list-inside space-y-1">
+                  <li>Countryside Alliance</li>
+                  <li>Team Fabulator</li>
+                  <li>Vip Srbija ff</li>
+                  <li>FC Ribba</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- UNDRE RAMLINJE -->
+          <div class="lg:col-span-2">
+            <hr class="my-[40px] border-t border-[#C2B59B] w-full max-w-[960px] mx-auto" />
+          </div>
+        </div>
+
+        <!-- ACCORDION: Loggans utveckling -->
+        <div class=" pl-4 mt-8">
+          <button
+            @click="loggaOpen = !loggaOpen"
+            class="flex items-center gap-2 text-[#C2B59B] font-semibold hover:text-[#A68F55] transition"
+          >
+          <span x-show="!loggaOpen">
+              <!-- plus icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5 text-[#A68F55]">
+                <path fill-rule="evenodd" d="M12 4.5a.75.75 0 0 1 .75.75v6h6a.75.75 0 0 1 0 1.5h-6v6a.75.75 0 0 1-1.5 0v-6h-6a.75.75 0 0 1 0-1.5h6v-6A.75.75 0 0 1 12 4.5z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          
+          <span x-show="loggaOpen">
+            <!-- minus icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="h-5 w-5 text-[#A68F55]">
+              <path fill-rule="evenodd" d="M4.5 12a.75.75 0 0 1 .75-.75h13.5a.75.75 0 0 1 0 1.5H5.25A.75.75 0 0 1 4.5 12z" clip-rule="evenodd" />
+            </svg>
+          </span>
+            Loggans utveckling (2008–2020)
+          </button>
+        </div>
+
+      <!-- INNEHÅLL i accordion -->
+      <div x-show="loggaOpen" x-transition class="relative mt-8 space-y-16">
+
+      <!-- SEKTION: Så föddes loggan -->
+      <section class="w-full pt-[100px] pb-[60px]">
+        <div class="max-w-[960px] mx-auto px-4">
+          
+          <!-- Inledning med text och bild -->
+          <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,320px)] gap-x-[80px] items-start mb-[80px]">
+            <!-- Text -->
+            <div class="space-y-4 max-w-[640px]">
+              <h3 class="text-[24px] uppercase font-cormorant text-[#A68F55]">Från idé till identitet</h3>
+              <p class="font-source leading-relaxed text-[#0A121A]">
+                Namnet <strong>Fiumelago</strong> föddes redan 2008 – inspirerat av italiensk fotboll och ett starkt behov av att låta större än vi var.
+              </p>
+              <p class="font-source leading-relaxed text-[#0A121A]">
+                <em>Fiume</em> betyder älv, <em>lago</em> betyder sjö. Tillsammans blev det vårt klubbnamn – något eget, men med en blinkning söderut i Europa.
+              </p>
+              <p class="font-source leading-relaxed text-[#0A121A]">
+                Loggan har däremot fått växa fram över tid. Från tidiga idéer till vår nuvarande örn och sköld – med varje version lite mer genomtänkt, lite mer Fiumelago.
+              </p>
+
+            </div>
+
+            <!-- Bild -->
+        <div class="flex flex-col items-center opacity-60">
+        <img src="/assets/skiss3.png" alt="Skiss av nuvarande Fiumelago-logga med örn och banderoll" class="w-full max-w-[300px]  mb-2" />
+        
+      </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+        <!-- === TIMELINE WRAPPER === -->
+        <div class="relative">
+          <!-- Vertikal linje bakom tidslinjen -->
+      <div class="hidden lg:block absolute top-0 left-1/2 transform -translate-x-1/2 w-[1px] bg-[#A68F55] h-full z-0 pointer-events-none"></div>
+
+          <!-- 2008 -->
+          <div class="mb-16 flex flex-col lg:flex-row items-center justify-between relative z-10">
+            <div class="w-full lg:w-[48%]">
+              <div class="bg-white text-black p-6 border border-[#ccc] mt-4 lg:mr-4 lg:ml-4 flex flex-col gap-4 font-source">
+                
+                <!-- Logga + text -->
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                  <img src="/assets/Fiumelago2008.png" alt="Första loggan 2008" class="w-20 h-auto mx-auto sm:mx-0" />
+                  <div class="text-left">
+                    <p class="text-sm leading-relaxed">
+                      Vår första logga, skapad 2008, är en tydlig hyllning till den italienska landslagsskölden. Formen, färgerna och känslan var direkt inspirerade av Italien – ett land vi alltid haft en förkärlek för.
+                    </p>
+                    <p class="text-sm leading-relaxed mt-2">
+                      Vi behöll silhuetten, bytte namn och anpassade stilen. Den blå nyansen i Italiens matchställ blev också vår – och lever vidare än idag.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Inspirationsbild jämte logga (justerad till höger) -->
+                <div class="flex flex-row justify-end items-center gap-4 mt-4 opacity-60 pr-[1rem] sm:pr-[2rem] lg:pr-[0.5rem]">
+                  <div class="flex flex-col items-center">
+                    <img src="/assets/italia.png" alt="Italiens sköld" class="w-[80px] h-auto" />
+                    <p class="text-[11px] text-[#666] italic mt-1 text-center">Italien – originalet</p>
+                  </div>
+                  <div class="text-xl text-[#A68F55] font-cormorant">→</div>
+                  <div class="flex flex-col items-center">
+                    <img src="/assets/Fiumelago2008.png" alt="Fiumelago 2008" class="w-[80px] h-auto" />
+                    <p class="text-[11px] text-[#666] italic mt-1 text-center">Fiumelago – vår tolkning</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Årtal -->
+            <div class="hidden lg:flex w-[4%] justify-center z-10">
+              <div class="relative">
+                <div class="w-12 h-12 bg-[#0A121A] border-[1px] border-[#A68F55] rounded-full flex items-center justify-center">
+                  <span class="text-[#A68F55] font-cormorant text-sm">2008</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hidden lg:block w-[48%]"></div>
+          </div>
+
+
+
+          <!-- 2011 -->
+          <div class="mb-16 flex flex-col lg:flex-row items-center justify-between relative z-10">
+            <!-- Vänster tom för zigzag-effekt -->
+            <div class="hidden lg:block w-[48%]"></div>
+
+            <!-- Årtalsring -->
+            <div class="hidden lg:flex w-[4%] justify-center z-10">
+              <div class="relative">
+                <div class="w-12 h-12 bg-[#0A121A] border-[1px] border-[#A68F55] rounded-full flex items-center justify-center">
+                  <span class="text-[#A68F55] font-cormorant text-sm">2011</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Innehåll -->
+            <div class="w-full lg:w-[48%]">
+              <div class="bg-white text-black p-6 border border-[#ccc] mt-4 shadow lg:mr-4 lg:ml-4 space-y-6 font-source">
+                
+                <!-- Logga + text -->
+                <div class="flex flex-col sm:flex-row-reverse items-center sm:items-start gap-4">
+                  <img src="/assets/Fiumelago2011.png" alt="Fiumelagos logga 2011" class="w-20 h-auto mx-auto sm:mx-0" />
+                  <div class="text-left">
+                    <p class="text-sm leading-relaxed">
+                      2011 var det dags för en ny riktning. Vi lät oss inspireras av West Hams karaktäristiska logga – med banderoll och kraftigare konturer.
+                    </p>
+                    <p class="text-sm leading-relaxed mt-2">
+                      Vi lyfte in delar av deras form, men behöll våra färger. Vår identitet började tydligare ta form, och devisen <em>Forza Fiume Per Sempre</em> föddes.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Inspirationsbild med pil, justerad till vänster -->
+                <div class="flex flex-row justify-start items-center gap-4 mt-4 opacity-60">
+                  <div class="flex flex-col items-center">
+                    <img src="/assets/westham.png" alt="West Ham-logga" class="w-[80px] h-auto" />
+                    <p class="text-[11px] text-[#666] italic mt-1 text-center">West Ham – originalet</p>
+                  </div>
+                  <div class="text-xl text-[#A68F55] font-cormorant">→</div>
+                  <div class="flex flex-col items-center">
+                    <img src="/assets/Fiumelago2011.png" alt="Fiumelago-logga 2011" class="w-[80px] h-auto" />
+                    <p class="text-[11px] text-[#666] italic mt-1 text-center">Fiumelago – vår tolkning</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+          <!-- 2020 -->
+          <div class="mb-16 flex flex-col lg:flex-row items-center justify-between relative z-10">
+            <!-- Vänster innehåll -->
+            <div class="w-full lg:w-[48%]">
+              <div class="bg-white text-black p-6 border border-[#ccc] mt-4 lg:mr-4 lg:ml-4 space-y-6 font-source">
+                
+                <!-- Logga och text -->
+                <div class="flex flex-col sm:flex-row items-start gap-4">
+                  <img src="/assets/Fiumelago2020.png" alt="Fiumelago logga 2020" class="w-20 h-auto sm:mt-1" />
+                  <div class="text-left">
+                    <p class="text-sm leading-relaxed">
+                      2020 tog vi ännu ett kliv i vår visuella resa. Med inspiration från Lazios klassiska örn introducerades en ny version av loggan – kraftfull, stolt och tidlös.
+                    </p>
+                    <p class="text-sm leading-relaxed mt-2">
+                      Skölden och banderollen från tidigare versioner finns kvar, men nu krönt av en örn som symboliserar styrka. Sloganen <em>“Forza Fiume Per Sempre”</em> – italienska för “Heja Fiume för alltid” – blev ett permanent inslag.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Pil -->
+                <div class="flex justify-center opacity-20">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 text-[#0A121A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+
+                <!-- Inspirationsbild justerad till höger -->
+                <div class="flex flex-row justify-end items-center gap-4 mt-4 opacity-60">
+                  <div class="flex flex-col items-center">
+                    <img src="/assets/lazio.png" alt="Lazio-logga" class="w-[80px] h-auto" />
+                    <p class="text-[11px] text-[#666] italic mt-1 text-center">Lazio – originalet</p>
+                  </div>
+                  <div class="text-xl text-[#A68F55] font-cormorant">→</div>
+                  <div class="flex flex-col items-center">
+                    <img src="/assets/Fiumelago2020.png" alt="Fiumelago-logga 2020" class="w-[80px] h-auto" />
+                    <p class="text-[11px] text-[#666] italic mt-1 text-center">Fiumelago – vår tolkning</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Årtalsring -->
+            <div class="hidden lg:flex w-[4%] justify-center z-10">
+              <div class="relative">
+                <div class="w-12 h-12 bg-[#0A121A] border-[1px] border-[#A68F55] rounded-full flex items-center justify-center">
+                  <span class="text-[#A68F55] font-cormorant text-sm">2020</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Höger tom för zigzag-effekt -->
+            <div class="hidden lg:block w-[48%]"></div>
+          </div>
+
+
+
+
+            <!-- 2008, 2011, 2020-bubblor kan klistras in här om du vill ha dem igen -->
+          </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Bild  Trophy Room -->
+    <div id="trophy-room" class="relative w-full h-[400px] bg-fixed bg-center bg-cover bg-[url('/assets/Trophyroom2.jpg')]">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#1F2E47]/70 via-[#1F2E47]/70 to-[#1F2E47]/70">"></div>
+    </div>
+
+                                              <!--TROPHY ROOM -->
+
+    <section class="w-full bg-[#E4E4E4] pt-[100px] pb-[80px]">
+
+      <!-- Innehållscontainer -->
+      <div class="px-4 text-[#0A121A]">
+        <div class="max-w-[960px] mx-auto">
+          <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-[60px]">
+            Trophy Room
+          </h2>
+
+    
+          <div class="flex flex-col lg:flex-row gap-y-8 lg:gap-x-20">
+
+          
+            <div class="w-full lg:w-1/2 space-y-8 pr-4">
+              <div>
+                <h3 class="font-cormorant text-[20px] uppercase text-[#A68F55] mb-2">
+                  Division 3-mästare – Korpen Stockholm
+                </h3>
+                <p class="font-source leading-relaxed">
+                  En stark säsong som kröntes med serieseger efter hårt arbete, laganda och taktisk disciplin. Ett mästerskap vi sent kommer glömma.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-cormorant text-[20px] uppercase text-[#A68F55] mb-2">
+                  Hozer Cup – Turneringsvinst 2014
+                </h3>
+                <p class="font-source leading-relaxed">
+                  En intensiv och dramatisk turnering där Fiumelago säkrade guldet efter en legendarisk final. Lagets defensiv satte tonen – ett minne för livet.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-cormorant text-[20px] uppercase text-[#A68F55] mb-2">
+                  Sportfixaren Cup – Segrare 10 oktober 2015
+                </h3>
+                <p class="font-source leading-relaxed">
+                  Cuptriumf på höstkanten med hög moral och vass offensiv. En klassisk insats i klubbens historia som satte oss på kartan.
+                </p>
+              </div>
+            </div>
+
+              <!-- Årets Spelare -->
+            <div class="w-full lg:w-1/2 text-left pl-4">
+              <h3 class="font-cormorant text-[20px] uppercase text-[#A68F55] mb-4">Årets spelare</h3>
+
+              
+              <div class="w-full aspect-[3/4] max-h-[360px] overflow-hidden">
+                <img id="playerImage" src="/assets/ar2024Filip.jpg" alt="Spelare" class="w-full h-full object-cover" />
+              </div>
+
+              <!-- Namn & text -->
+              <p id="playerName" class="font-source font-semibold mt-2 mb-1 min-h-[1.5rem]">Filip Jäätmaa – 2024</p>
+              <p id="playerText" class="font-source text-sm text-[#0A121A] min-h-[3rem]">Ledarfigur och bolltrygg. En självklar vinnare.</p>
+
+              <!-- Pilar & pokal -->
+              <div class="flex items-center justify-center gap-10 mt-6">
+                <!-- Vänsterpil -->
+                <button id="prevPlayer" class="text-[#A68F55] hover:text-[#8C773F] text-3xl hover:scale-110 transform transition">
+                  &lt;
+                </button>
+
+                <!-- Pokal + år -->
+                <div class="text-center">
+                  <img src="/assets/aretsspelare.png" alt="Pokal" class="w-24 sm:w-28 lg:w-32 mx-auto drop-shadow-md" />
+                  <p id="playerYear" class="text-xs mt-2 font-source tracking-wide">2024</p>
+                </div>
+
+                <!-- Högerpil -->
+                <button id="nextPlayer" class="text-[#A68F55] hover:text-[#8C773F] text-3xl hover:scale-110 transform transition">
+                  &gt;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+                                            <!--KONTAKT -->
+
+      <section id="kontakt" class="relative w-full bg-[#111A26] text-white pt-[100px] pb-[80px] overflow-hidden">
+        <!-- Bakgrund + Overlay -->
+        <div class="absolute inset-0 bg-[url('/assets/contact_background.png')] bg-cover bg-center bg-no-repeat">
+          <div class="absolute inset-0 bg-[#0A121A]/70"></div>
+        </div>
+
+        <!-- Innehåll -->
+        <div class="relative z-10 max-w-[960px] mx-auto px-4">
+          <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-[40px] text-left">
+            Kontakt
+          </h2>
+          <p class="text-sm font-source mb-[40px] max-w-[620px] text-left">
+            Vill du spela med oss, boka match eller bara säga hej? Hör av dig!
+          </p>
+
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left font-source">
+            <input type="text" placeholder="Namn" class="w-full px-4 py-3 bg-white text-[#0A121A] " />
+            <input type="email" placeholder="E-post" class="w-full px-4 py-3 bg-white text-[#0A121A] " />
+            <textarea placeholder="Meddelande" rows="5" class="md:col-span-2 w-full px-4 py-3 bg-white text-[#0A121A]  resize-none"></textarea>
+            <button type="submit" class="md:col-span-2 bg-[#A68F55] text-[#0A121A] font-bold uppercase py-3 hover:bg-[#8C773F] transition">
+              Skicka
+            </button>
+          </form>
+        </div>
+      </section>
+
+
+                                                  <!-- FOOTER -->
+
+      <footer class="bg-[#0A121A] text-white pt-[80px] pb-[60px] font-source">
+        <div class="max-w-[960px] mx-auto px-4 grid md:grid-cols-3 gap-10 items-start">
+
+          <!-- Kolumn 1: Länkar -->
+          <nav class="flex flex-col gap-2 text-[14px] font-cormorant font-semibold uppercase tracking-[0.05em] text-white">
+            <a href="#top" class="hover:text-[#A68F55]">Hem</a>
+            <a href="#nyheter" class="hover:text-[#A68F55]">Nyheter</a>
+            <a href="#laget" class="hover:text-[#A68F55]">Laget</a>
+            <a href="#historia" class="hover:text-[#A68F55]">Historia</a>
+            <a href="#trophy-room" class="hover:text-[#A68F55]">Trophy Room</a>
+            <a href="#kontakt" class="hover:text-[#A68F55]">Kontakt</a>
+          </nav>
+
+          <!-- Kolumn 2: Sociala ikoner -->
+          <div class="flex flex-col items-center space-y-4">
+            <div class="flex gap-[30px]">
+              <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="hover:opacity-80 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#A68F55]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 
+                    3.66 9.13 8.44 9.88v-6.99h-2.54v-2.89h2.54V9.41c0-2.5 
+                    1.49-3.89 3.77-3.89 1.09 0 2.23.2 
+                    2.23.2v2.46h-1.26c-1.24 0-1.62.77-1.62 
+                    1.56v1.87h2.76l-.44 2.89h-2.32v6.99C18.34 
+                    21.13 22 17 22 12z"/>
+                </svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="hover:opacity-80 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#A68F55]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 2C4.24 2 2 4.24 2 7v10c0 
+                    2.76 2.24 5 5 5h10c2.76 0 5-2.24 
+                    5-5V7c0-2.76-2.24-5-5-5H7zm10 
+                    2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 
+                    3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 
+                    1.34-3 3-3h10zm-5 3a5 5 0 100 
+                    10 5 5 0 000-10zm0 2a3 3 0 110 
+                    6 3 3 0 010-6zm4.5-.25a1 1 0 100 
+                    2 1 1 0 000-2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Kolumn 3: Korpenkälla -->
+          <div class="bg-[#111A26]  border-[#A68F55] pl-4 py-4">
+            <div class="flex items-center gap-4">
+              <img src="/assets/nyhet3.jpg" alt="Korpen logga" class="h-10 w-auto" />
+              <p class="italic text-sm text-white leading-snug">
+                Tabelluppgifter från Korpen Stockholm<br />
+                <a href="https://korpenstockholm.zoezi.se/serie/6758" class="text-[#ccc] hover:underline" target="_blank">korpenstockholm.se</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logga + Copyright -->
+        <div class="mt-[60px] px-4 text-center">
+          <img src="/assets/fiumelago_logotyp.png" alt="Fiumelago logotyp" class="h-12 w-auto mx-auto mb-4" />
+          <p class="text-xs text-[#bbb]">
+            &copy; 2025 Fiumelago – Glädje, passion & hybris sedan 2008
+            <a href="admin.html" class="ml-2 text-sm text-[#A68F55] hover:underline">Adminlogin</a>
+          </p>
+        </div>
+      </footer>
+
+  </body>
+</html>

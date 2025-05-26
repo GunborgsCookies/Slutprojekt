@@ -1,0 +1,12 @@
+# Node
+node_modules/
+
+# Mac
+.DS_Store
+
+# Loggar
+*.log
+
+# Byggmappar
+dist/
+build/

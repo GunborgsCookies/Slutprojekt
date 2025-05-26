@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
       hamburger.classList.toggle('hidden');
       close.classList.toggle('hidden');
 
-      
       toggleBtn.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
     });
+
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
@@ -25,13 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("⚠️ Kunde inte hitta alla element för hamburgermenyn. Kontrollera att id:n stämmer.");
   }
 
-  // Din fetch och matchinformation
+  // Säkerställ setInnerHTML finns (äldre fallback)
   if (typeof setInnerHTML === 'undefined') {
     function setInnerHTML(el, html) {
       el.innerHTML = html;
     }
   }
 
+  // Hämta data
   fetch(`./data/data.json?ts=${Date.now()}`)
     .then(res => res.json())
     .then(data => {
@@ -82,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       }
 
+      // Skapa matchkort (HTML-sträng)
       function createMatchCard(match) {
         const { datum, tid, motstandare, resultat, spelad, logga, referat } = match;
         const status = spelad ? "Avslutad match" : "Kommande match";
@@ -117,8 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         `;
       }
-
-      customElements.whenDefined("swiper-container").then(() => {
+    customElements.whenDefined("swiper-container").then(() => {
         const swiperEl = document.querySelector("#matchcards");
 Object.assign(swiperEl, {
   slidesPerView: 1,

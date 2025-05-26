@@ -22,18 +22,9 @@
     font-family: "Source Sans Pro", sans-serif;
   }
 
-  /* Animerad bakgrund */
-  @keyframes gradientPulse {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  .animate-gradient {
-    background: linear-gradient(to right, #0b1a2d, #2b3c5a);
-    background-size: 200% 200%;
-    animation: gradientPulse 6s ease-in-out infinite;
-  }
-
+html, body {
+  background-color: #0B1C2C;
+}
 
 
 
@@ -41,7 +32,22 @@
 
 }
 
+/* SWIPER*/
 
+.swiper-pagination-bullet {
+  background-color: #a5a5a5 !important;
+  opacity: 0.6;
+  border-radius: 9999px;
+  width: 12px;
+  height: 12px;
+  margin: 0 4px; /* bara horisontell marginal */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #a68f55 !important;
+  opacity: 1;
+  margin: 0 4px;
+}
 
   /* === MATCH-SWIPER / MATCHKORT === */
 
@@ -164,38 +170,6 @@
 
 
 
-
-/* SWIPER*/
-
-.swiper-pagination-bullet {
-  background-color: #a5a5a5 !important;
-  opacity: 0.6;
-  border-radius: 9999px;
-  width: 12px;
-  height: 12px;
-  margin: 0 4px; /* bara horisontell marginal */
-}
-
-.swiper-pagination-bullet-active {
-  background-color: #a68f55 !important;
-  opacity: 1;
-  margin: 0 4px;
-}
-@media (max-width: 640px) {
-
-/* Swiper HERO*/
-  .match-card {
-    margin-bottom: 200px; 
-  }
-    .hero-pagination {
-    margin-bottom: 150px !important;
-  }
-  /* Swiper mobil NYHETER*/
-    .nyheter-pagination {
-    margin-bottom: -40px !important;
-  }
-}
-
   /* KORT HERO BAKGRUND */
 
   .match-card.avslutad.vinst {
@@ -226,6 +200,7 @@
 
   
 }
+
 
 
 

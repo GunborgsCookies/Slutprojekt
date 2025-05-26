@@ -46,3 +46,5 @@ document.addEventListener("DOMContentLoaded", () => {
     closeBtn.addEventListener("click", closeModal);
   }
 });
+const bullets = document.querySelectorAll('.swiper-pagination-bullet');
+console.log("Antal bullets:", bullets.length);

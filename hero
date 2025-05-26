@@ -138,6 +138,20 @@ export function openReferatModal(referatText) {
 
 
 
+@media (max-width: 640px) {
+
+/* Swiper HERO*/
+  .match-card {
+    margin-bottom: 200px; 
+  }
+    .hero-pagination {
+    margin-bottom: 150px !important;
+  }
+  /* Swiper mobil NYHETER*/
+    .nyheter-pagination {
+    margin-bottom: -40px !important;
+  }
+}
 
 
 

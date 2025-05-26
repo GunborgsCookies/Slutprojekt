@@ -105,3 +105,13 @@ if (!window.fiumeWeatherLoaded) {
     fetchWeather();
   }
 }
+
+const closeBtn = document.getElementById("close-weather");
+const weatherBox = document.getElementById("weather-widget");
+
+if (closeBtn && weatherBox) {
+  closeBtn.addEventListener("click", () => {
+    weatherBox.classList.add("hidden");
+  });
+}
+

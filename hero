@@ -274,3 +274,116 @@ export function openReferatModal(referatText) {
     }
   });
 </script>
+
+
+
+
+
+
+
+
+<div class="max-w-[960px] mx-auto px-4 text-[#0A121A]">
+    
+    <!-- Rubrik -->
+    <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-[24px]">
+      Laget
+    </h2>
+
+    <!-- Underrubrik -->
+    <h3 class="text-[24px] uppercase font-cormorant text-[#A68F55] mb-[56px]">
+      Prima Squadra 2025
+    </h3>
+
+    <!-- FLEX: Spelare + Bilder -->
+    <div class="flex flex-col lg:flex-row gap-[80px] items-start">
+
+      <!-- Spelarlista -->
+      <div class="w-full lg:w-1/2 flex flex-col gap-10 font-source">
+
+        
+        <!-- Målvakt -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Målvakt</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm">
+              <p class="font-semibold">V. Mattsson</p>
+              <p class="text-sm text-gray-600">2008, 185 matcher <br><span class="text-xs text-gray-400">(varav 96 som målvakt)</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Försvarare -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Försvarare</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">2. P. Kenney</p><p class="text-sm text-gray-600">2011, 119 matcher<br><span class="text-xs text-gray-400">(varav 6 som målvakt)</span></p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">5. J. Kenney</p><p class="text-sm text-gray-600">2008, 116 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">8. F. Jäätmaa (A)</p><p class="text-sm text-gray-600">2008, 201 matcher</p></div>
+          </div>
+        </div>
+
+        <!-- Mittfältare -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Mittfältare</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">7. A. Sundin</p><p class="text-sm text-gray-600">2008, 164 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">11. J. Bartoli (C)</p><p class="text-sm text-gray-600">2008, 73 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">12. J. Folstad</p><p class="text-sm text-gray-600">2008, 73 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">15. M. Eidehall</p><p class="text-sm text-gray-600">2008, 184 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">23. V. Sundin</p><p class="text-sm text-gray-600">2008, 185 matcher<br><span class="text-xs text-gray-400">(varav 104 som målvakt)</span></p></div>
+          </div>
+        </div>
+
+        <!-- Anfallare -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Anfallare</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">14. R. Hansson</p><p class="text-sm text-gray-600">2011, 137 matcher<br><span class="text-xs text-gray-400">(varav 4 som målvakt)</span></p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">21. V. Köpcke</p><p class="text-sm text-gray-600">2008, 148 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">22. A. Haanpää</p><p class="text-sm text-gray-600">2008, 171 matcher</p></div>
+          </div>
+        </div>
+
+        <!-- Pensionerade -->
+        <div>
+          <h4 class="text-[24px] font-cormorant text-[#A68F55] mb-4">Pensionerade spelare</h4>
+          <div class="flex flex-col gap-4">
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">J. Agnepil</p><p class="text-sm text-gray-600">2008–2014, 56 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">N. Lindström</p><p class="text-sm text-gray-600">2008–2010, 31 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">M. Nygren</p><p class="text-sm text-gray-600">2008, 4 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">M. Roupe</p><p class="text-sm text-gray-600">2011–2016, 44 matcher</p></div>
+            <div class="bg-white p-4 shadow-sm"><p class="font-semibold">10. S. Söder</p><p class="text-sm text-gray-600">2011, 126 matcher</p></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bilder LAGET-->
+      <div class="w-full lg:w-1/2 flex flex-col gap-8 self-stretch">
+        <!-- Bild 1 -->
+        <figure class="bg-white p-4 shadow-sm">
+          <img src="/assets/Lagfoto2024.jpg" alt="Lagfoto 2024" class="w-full object-cover mb-6" />
+          <figcaption class="text-lg text-[#444] italic text-center leading-snug" style="font-family: 'Just Another Hand', cursive;">
+            Lagfoto 2024
+          </figcaption>
+        </figure>
+
+        <!-- Bild 2 -->
+        <figure class="bg-white p-4 shadow-sm">
+          <img src="/assets/Lagfoto2012.jpg" alt="Lagfoto 2012" class="w-full object-cover mb-6" />
+          <figcaption class="text-lg text-[#444] italic text-center leading-snug" style="font-family: 'Just Another Hand', cursive;">
+            Lagfoto 2012
+          </figcaption>
+        </figure>
+
+        <!-- Bild 3 -->
+        <figure class="bg-white p-4 shadow-sm">
+          <img src="/assets/Lagfoto2008.jpg" alt="Lagfoto 2008" class="w-full object-cover mb-6" />
+          <figcaption class="text-lg text-[#444] italic text-center leading-snug" style="font-family: 'Just Another Hand', cursive;">
+            Lagfoto 2008
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>

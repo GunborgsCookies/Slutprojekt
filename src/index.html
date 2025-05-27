@@ -105,7 +105,7 @@
     </nav>
 
 
-                                                                            <!-- weather-widget -->
+                                                                            <!-- Väder-widget -->
           <div id="weather-widget" class="fixed bottom-4 right-4 z-50 bg-[#0A121A]/80 backdrop-blur-md text-white text-sm px-4 py-2  flex items-center gap-2">
         <button id="close-weather" class="text-white text-xs hover:text-[#A68F55]">&times;</button>
         <span class="text-xs uppercase tracking-wide text-white/50">Väder</span>
@@ -129,43 +129,50 @@
       <p id="hero-match-details" class="text-[24px] leading-tight mt-[4px] mb-[32px]"></p>
         
     
-    <!-- Matchkort -->
-  <div class="relative z-10 -mt-[12px] sm:mt-[90px] px-4 sm:px-0 w-full">
-    
-    <!-- Vänster -->
-    <button id="prevBtn"
-      class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-[-24px] z-20"
-      aria-label="Föregående match">
-      <svg xmlns="http://www.w3.org/2000/svg"
-        class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors"
-        viewBox="0 0 24 24" fill="currentColor">
-        <path fill-rule="evenodd"
-          d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z"
-          clip-rule="evenodd" />
-      </svg>
-    </button>
+      <!-- Matchkortsektion -->
+      <div class="relative z-10 mt-[-40px] sm:mt-[90px] px-4 sm:px-0 w-full">
+        <div class="relative max-w-[960px] mx-auto h-[320px] pb-6">
 
-    <!-- Swiper-container -->
-    <div class="relative max-w-[960px] mt-2  mx-auto">
-      <swiper-container id="matchcards" init="false" class="w-full"></swiper-container>
+          <!-- Vänster pil -->
+          <button id="prevBtn"
+            class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-[-24px] z-20"
+            aria-label="Föregående match">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors"
+              viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
 
-      <!-- Pagination-->
-    <div class="swiper-pagination hero-pagination sm:hidden flex justify-center"></div>
+          <!-- Swiper -->
+          <swiper-container id="matchcards" init="false" class="w-full h-full"></swiper-container>
 
-        <!-- Höger pil-->
-        <button id="nextBtn"
-          class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-[-24px] z-20"
-          aria-label="Nästa match">
-          <svg xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors"
-            viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M8.22 19.78a.75.75 0 0 1 0-1.06L13.94 13l-5.72-5.72a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z"
-              clip-rule="evenodd" />
-          </svg>
-        </button>
+          <!-- Höger pil -->
+          <button id="nextBtn"
+            class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-[-24px] z-20"
+            aria-label="Nästa match">
+            <svg xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors"
+              viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M8.22 19.78a.75.75 0 0 1 0-1.06L13.94 13l-5.72-5.72a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
+
+          <!-- Bullets under korten på mobil -->
+          <div class="swiper-pagination hero-pagination sm:hidden absolute bottom-2 left-0 right-0 flex justify-center z-10"></div>
+
+        </div>
       </div>
-    </div>
+
+
+
+</div>
+
+</div>
 
 </section>
 
@@ -368,94 +375,88 @@
 
 
                                                                   <!-- NYHETER-->
+<section id="nyheter" class="bg-[#E4E4E4] pt-[90px] pb-[24px]">
 
-<section id="nyheter" class="bg-[#E4E4E4] py-[90px]">
+
   <div class="max-w-[970px] mx-auto px-4">
     <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-[60px]">
       Nyheter
     </h2>
 
     <div class="relative">
-      <!-- Vänster pil -->
-      <button class="nyheter-prev absolute top-1/2 -translate-y-1/2 left-[-20px] z-50 text-[#A68F55] hover:text-[#8C773F]" aria-label="Föregående nyhet">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+
+      <button class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-[-24px] z-50 text-[#A68F55] hover:text-[#8C773F] transition-colors duration-200 nyheter-prev" aria-label="Föregående nyhet">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
           <path fill-rule="evenodd" d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z" clip-rule="evenodd" />
         </svg>
       </button>
 
-      <!-- Swiper -->
-      <div class="swiper nyhets-swiper">
-        <div class="swiper-wrapper">
+      <div class="swiper nyhets-swiper h-[572px]">
+        <div class="swiper-wrapper relative">
 
-          <!-- Kort 1 -->
-          <div class="swiper-slide h-[500px] bg-white p-5 flex flex-col text-black">
-            <img src="/assets/nyhet1.jpg" class="w-full h-[180px] object-cover mb-5" />
+          <div class="swiper-slide h-[572px] bg-[#f2f2f2] p-5 flex flex-col text-black">
+            <img src="/assets/nyhet1.jpg" class="w-full h-[248px] object-cover mb-5" />
             <div class="flex flex-col justify-between flex-1 overflow-hidden">
               <h3 class="text-lg font-cormorant text-[#A68F55] font-semibold leading-tight line-clamp-2 mb-2">
-                Årets första träning
+                  Dags för årets första träning – vi hoppas på fler spelare än koner
               </h3>
               <p class="text-sm font-source leading-relaxed line-clamp-3 mb-4">
                 Årets första träning är på gång, och vi hoppas på fler spelare än koner.
-              </p>
-              <a href="#" class="text-sm font-source underline hover:text-[#A68F55]">Läs mer ></a>
+                Det blir startskottet för en ny säsong – vi ses på planen!             </p>
+              <a href="#" class="text-sm font-source  hover:text-[#A68F55]">Läs mer ></a>
             </div>
           </div>
 
-          <!-- Kort 2 -->
-          <div class="swiper-slide h-[500px] bg-white p-5 flex flex-col text-black">
-            <img src="/assets/nyhet2.jpg" class="w-full h-[180px] object-cover mb-5" />
+          <div class="swiper-slide h-[500px] bg-[#f2f2f2] p-5 flex flex-col text-black">
+            <img src="/assets/nyhet2.jpg" class="w-full h-[248px] object-cover mb-5" />
             <div class="flex flex-col justify-between flex-1 overflow-hidden">
               <h3 class="text-lg font-cormorant text-[#A68F55] font-semibold leading-tight line-clamp-2 mb-2">
-                Officiellt: Simon Davidsson klar för Fiumelago
-              </h3>
+                Officiellt: Simon Davidsson klar för Fiumelago           </h3>
               <p class="text-sm font-source leading-relaxed line-clamp-3 mb-4">
                 Efter år av spontana inhopp, sena sms och “kan du spela i kväll?”-förfrågningar har vi nu gjort det officiellt: Simon Davidsson är klar för Fiumelago.
               </p>
-              <a href="#" class="text-sm font-source underline hover:text-[#A68F55]">Läs mer ></a>
+              <a href="#" class="text-sm font-source hover:text-[#A68F55]">Läs mer ></a>
             </div>
           </div>
 
-          <!-- Kort 3 -->
-          <div class="swiper-slide h-[500px] bg-white p-5 flex flex-col text-black">
-            <img src="/assets/blur.jpg" class="w-full h-[180px] object-cover mb-5" />
+          <div class="swiper-slide h-[500px] bg-[#f2f2f2] p-5 flex flex-col text-black">
+            <img src="/assets/blur.jpg" class="w-full h-[248px] object-cover mb-5" />
             <div class="flex flex-col justify-between flex-1 overflow-hidden">
               <h3 class="text-lg font-cormorant text-[#A68F55] font-semibold leading-tight line-clamp-2 mb-2">
-                Ny logga på gång
-              </h3>
+                Modernisering på gång – en ny logotyp växer fram för klubben           </h3>
               <p class="text-sm font-source leading-relaxed line-clamp-3 mb-4">
                 En uppdaterad logotyp håller på att tas fram för att spegla klubbens framtid – modern men trogen traditionen.
+                Designen närmar sig nu målbilden, med premiär senare i vår.
               </p>
-              <a href="#" class="text-sm font-source underline hover:text-[#A68F55]">Läs mer ></a>
+              <a href="#" class="text-sm font-source  hover:text-[#A68F55]">Läs mer ></a>
             </div>
           </div>
 
-          <!-- Kort 4 -->
-          <div class="swiper-slide h-[500px] bg-white p-5 flex flex-col text-black">
-            <img src="/assets/Kuriosa.jpg" class="w-full h-[180px] object-cover mb-5" />
+          <div class="swiper-slide h-[500px] bg-[#f2f2f2] p-5 flex flex-col text-black">
+            <img src="/assets/Kuriosa.jpg" class="w-full h-[248px] object-cover mb-5" />
             <div class="flex flex-col justify-between flex-1 overflow-hidden">
               <h3 class="text-lg font-cormorant text-[#A68F55] font-semibold leading-tight line-clamp-2 mb-2">
-                Steffe gör comeback i sommar
-              </h3>
+                Steffe gör efterlängtad comeback i sommar – redo att snöra på sig skorna igen           </h3>
               <p class="text-sm font-source leading-relaxed line-clamp-3 mb-4">
                 Damma av matchstället och värm upp skorna – Steffe är tillbaka på planen i sommar. Gammal är äldst?
               </p>
-              <a href="#" class="text-sm font-source underline hover:text-[#A68F55]">Läs mer ></a>
+              <a href="#" class="text-sm mb-3 font-source hover:text-[#A68F55]">Läs mer ></a>
             </div>
           </div>
-
         </div>
-        <!-- Mobilpagination -->
-        <div class="swiper-pagination nyheter-pagination sm:hidden flex justify-center mt-4"></div>
+        <div class="swiper-pagination nyheter-pagination sm:hidden absolute bottom-2 left-0 right-0 flex justify-center z-10"></div>
       </div>
 
-      <!-- Höger pil -->
-      <button class="nyheter-next absolute top-1/2 -translate-y-1/2 right-[-20px] z-50 text-[#A68F55] hover:text-[#8C773F]" aria-label="Nästa nyhet">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-          <path fill-rule="evenodd" d="M8.22 19.78a.75.75 0 0 1 0-1.06L13.94 13l-5.72-5.72a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z" clip-rule="evenodd" />
+      <button class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-[-24px] z-50 text-[#A68F55] hover:text-[#8C773F] transition-colors duration-200 nyheter-next" aria-label="Nästa nyhet">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 rotate-180" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z" clip-rule="evenodd" />
         </svg>
       </button>
+
     </div>
+
   </div>
+
 </section>
 
 
@@ -463,7 +464,7 @@
 
                                                                             <!-- LAGET SWIPER -->
 
-<section id="laget" class="w-full bg-[#F9F9F9] pt-[100px] pb-0">
+<section id="laget" class="w-full bg-[#E4E4E4] pt-[100px] pb-0">
 
   <div class="relative bg-gradient-to-br from-[#0B1C2C] via-[#1F2E47] to-[#0A121A] h-[400px] flex flex-col items-center justify-end overflow-hidden">
     
@@ -527,125 +528,239 @@
   </div>
 </section>
 
- <!-- LAGET (rubrik + intro + pensionerade) -->
-<section class="bg-[#E4E4E4] pt-[90px] pb-[30px] md:pb-[40px]" id="laget">
-  <div class="max-w-[970px] mx-auto px-4 text-left">
-    <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-4">Laget</h2>
-    <h3 class="text-[24px] uppercase font-cormorant text-[#A68F55] tracking-wide mb-2">Prima Squadra 2025</h3>
-    <p class="text-sm text-gray-600 font-source max-w-[600px]">
-      Spelarna som representerar Fiumelago under säsongen 2025. Både veteraner och nya ikoner – samlade på samma pitch.
-    </p>
-    <hr class="mt-6 w-24 border-t border-[#C2B59B]" />
 
-        <!-- Pensionerade spelare -->
-    <div class="mt-10 hidden md:flex flex-wrap gap-3 text-gray-500 italic text-sm font-source">
-      <h4 class="w-full text-[20px] uppercase font-cormorant text-[#A68F55] mb-2">Pensionerade</h4>
-      <p>J. Agnepil</p>
-      <p>N. Lindström</p>
-      <p>M. Nygren</p>
-      <p>M. Roupe</p>
-      <p>10. S. Söder</p>
+
+      
+<!-- SEKTION: Laget -->
+<section id="laget" class="w-full bg-[#E4E4E4] pt-[100px] pb-[100px]">
+  <div class="max-w-[960px] mx-auto px-4 text-[#0A121A]">
+
+    <!-- HUVUDRUBRIK -->
+    <h2 class="text-[40px] uppercase font-semibold text-[#A68F55] font-cormorant mb-12">Laget</h2>
+
+    <!-- UNDERRUBRIK -->
+    <h3 class="text-[24px] uppercase font-cormorant text-[#A68F55] mb-6">Prima Squadra 2025</h3>
+   <p class="text-sm text-gray-700 font-source leading-relaxed max-w-[680px] mb-10">
+  Här hittar du hela Fiumelagos lag – både årets uppställning och spelare som varit med genom åren.  
+  <br class="hidden md:block" />
+  Vi har samlat lagbilder, statistik från matcher och en översikt över alla som burit tröjan sedan starten 2008. Ett sätt att minnas, hylla och följa utvecklingen – från premiärmatchen till dagens matcher.
+</p>
+
+    <!-- BILDER PÅ RAD -->
+    <div class="flex flex-col md:flex-row gap-6 mb-12">
+      <figure class="flex-1">
+        <img src="/assets/Lagfoto2024.jpg" alt="Lagfoto 2024" class="w-full object-cover drop-shadow-md" />
+        <figcaption class="text-sm text-[#444] italic text-center mt-2" style="font-family: 'Just Another Hand', cursive;">2024</figcaption>
+      </figure>
+      <figure class="flex-1">
+        <img src="/assets/Lagfoto2012.jpg" alt="Lagfoto 2012" class="w-full object-cover drop-shadow-md" />
+        <figcaption class="text-sm text-[#444] italic text-center mt-2" style="font-family: 'Just Another Hand', cursive;">2012</figcaption>
+      </figure>
+      <figure class="flex-1">
+        <img src="/assets/Lagfoto2008.jpg" alt="Lagfoto 2008" class="w-full object-cover drop-shadow-md" />
+        <figcaption class="text-sm text-[#444] italic text-center mt-2" style="font-family: 'Just Another Hand', cursive;">2008</figcaption>
+      </figure>
     </div>
 
-  </div>
-</section>
+    <!-- DESKTOP-VERSION -->
+    <div class="hidden lg:block">
+      <!-- RUBRIKER -->
+      <div class="grid grid-cols-5 gap-6 text-sm text-gray-600 font-source place-items-start mb-4">
+        <div><h4 class="text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">Målvakt</h4></div>
+        <div><h4 class="text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">Försvarare</h4></div>
+        <div><h4 class="text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">Mittfältare</h4></div>
+        <div><h4 class="text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">Anfallare</h4></div>
+        <div><h4 class="text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">Pensionerade</h4></div>
+      </div>
 
-<!-- VISUELL LAGUPPSTÄLLNING: PITCH + GRID -->
-<section class="relative bg-[#E4E4E4] pb-[60px] overflow-hidden hidden md:block">
-  <div class="max-w-[970px] max-h-[1100px] mx-auto px-4 relative z-0">
-    <img
-      src="/assets/pitch2.png"
-      alt="Fotbollsplan"
-      class="w-full h-auto opacity-30"
-    />
-  </div>
+      <!-- SPELARE I KOLUMNER -->
+      <div class="grid grid-cols-5 gap-6 text-sm text-gray-600 font-source place-items-start">
+        <!-- Målvakt -->
+        <div class="space-y-4 text-left">
+          <p><span class="font-semibold">V. Mattsson</span><br>2008, 185 matcher<br><span class="text-xs text-gray-400">(96 som målvakt)</span></p>
+        </div>
 
-  <!-- Spelarpositioner (absolut positionerade på planen) -->
-  <div class="absolute inset-0 z-10 text-sm text-gray-800 font-source px-4">
+        <!-- Försvarare -->
+        <div class="space-y-4 text-left">
+          <p><span class="font-semibold">2. P. Kenney</span><br>2011, 119 matcher<br><span class="text-xs text-gray-400">(6 som målvakt)</span></p>
+          <p><span class="font-semibold">5. J. Kenney</span><br>2008, 116 matcher</p>
+          <p><span class="font-semibold">8. F. Jäätmaa (A)</span><br>2008, 201 matcher</p>
+        </div>
 
-    <!-- MÅLVAKT -->
-    <div class="absolute top-[2%] left-1/2 -translate-x-1/2 text-center">
-      <h4 class="text-[20px]  font-cormorant text-[#A68F55] mb-2">Målvakt</h4>
-      <p>1. V. Mattsson</p>
-    </div>
+        <!-- Mittfältare -->
+        <div class="space-y-4 text-left">
+          <p><span class="font-semibold">7. A. Sundin</span><br>2008, 164 matcher</p>
+          <p><span class="font-semibold">11. J. Bartoli (C)</span><br>2008, 73 matcher</p>
+          <p><span class="font-semibold">12. J. Folstad</span><br>2008, 73 matcher</p>
+          <p><span class="font-semibold">15. M. Eidehall</span><br>2008, 184 matcher</p>
+          <p><span class="font-semibold">23. V. Sundin</span><br>2008, 185 matcher<br><span class="text-xs text-gray-400">(104 som målvakt)</span></p>
+        </div>
 
-    <!-- FÖRSVARARE -->
-    <div class="absolute top-[20%] left-1/2 -translate-x-1/2 text-center">
-      <h4 class="text-[20px] font-cormorant text-[#A68F55] mb-2">Försvarare</h4>
-      <div class="flex flex-wrap justify-center gap-x-4 gap-y-1">
-        <p>2. P. Kenney</p>
-        <p>5. J. Kenney</p>
-        <p>8. F. Jäätmaa (A)</p>
+        <!-- Anfallare -->
+        <div class="space-y-4 text-left">
+          <p><span class="font-semibold">14. R. Hansson</span><br>2011, 137 matcher<br><span class="text-xs text-gray-400">(4 som målvakt)</span></p>
+          <p><span class="font-semibold">21. V. Köpcke</span><br>2008, 148 matcher</p>
+          <p><span class="font-semibold">22. A. Haanpää</span><br>2008, 171 matcher</p>
+        </div>
+
+        <!-- Pensionerade -->
+        <div class="space-y-4 text-left">
+          <p><span class="font-semibold">J. Agnepil</span><br>2008–2014, 56 matcher</p>
+          <p><span class="font-semibold">N. Lindström</span><br>2008–2010, 31 matcher</p>
+          <p><span class="font-semibold">M. Nygren</span><br>2008, 4 matcher</p>
+          <p><span class="font-semibold">M. Roupe</span><br>2011–2016, 44 matcher</p>
+          <p><span class="font-semibold">10. S. Söder</span><br>2011, 126 matcher</p>
+        </div>
       </div>
     </div>
 
-    <!-- MITTFÄLTARE -->
-    <div class="absolute top-[42%] left-1/2 -translate-x-1/2 text-center">
-      <h4 class="text-[20px]  font-cormorant text-[#A68F55] mb-2">Mittfältare</h4>
-      <div class="flex flex-wrap justify-center gap-x-4 gap-y-1">
-        <p>7. A. Sundin</p>
-        <p>11. J. Bartoli (C)</p>
-        <p>12. J. Folstad</p>
-        <p>15. M. Eidehall</p>
-        <p>23. V. Sundin</p>
+      <!-- MOBIL-VERSION -->
+    <!-- MOBILVERSION MED FÄLLBARA LISTOR -->
+  <div class="block lg:hidden space-y-6 text-sm text-gray-700 font-source" x-data="{ open: null }">
+
+    <!-- Målvakt -->
+    <div>
+      <button @click="open === 1 ? open = null : open = 1" class="w-full text-left text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">
+        Målvakt
+      </button>
+      <div x-show="open === 1" x-collapse>
+        <p class="mb-4"><span class="font-semibold">V. Mattsson</span><br>2008, 185 matcher<br><span class="text-xs text-gray-400">(96 som målvakt)</span></p>
       </div>
     </div>
 
-    <!-- ANFALLARE -->
-    <div class="absolute top-[70%] left-1/2 -translate-x-1/2 text-center">
-      <h4 class="text-[20px] font-cormorant text-[#A68F55] mb-2">Anfallare</h4>
-      <div class="flex flex-wrap justify-center gap-x-4 gap-y-1">
-        <p>14. R. Hansson</p>
-        <p>21. V. Köpcke</p>
-        <p>22. A. Haanpää</p>
+    <!-- Försvarare -->
+    <div>
+      <button @click="open === 2 ? open = null : open = 2" class="w-full text-left text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">
+        Försvarare
+      </button>
+      <div x-show="open === 2" x-collapse>
+        <p class="mb-2"><span class="font-semibold">2. P. Kenney</span><br>2011, 119 matcher<br><span class="text-xs text-gray-400">(6 som målvakt)</span></p>
+        <p class="mb-2"><span class="font-semibold">5. J. Kenney</span><br>2008, 116 matcher</p>
+        <p class="mb-2"><span class="font-semibold">8. F. Jäätmaa (A)</span><br>2008, 201 matcher</p>
       </div>
     </div>
 
-  </div>
-</section>
+    <!-- Mittfältare -->
+    <div>
+      <button @click="open === 3 ? open = null : open = 3" class="w-full text-left text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">
+        Mittfältare
+      </button>
+      <div x-show="open === 3" x-collapse>
+        <p class="mb-2"><span class="font-semibold">7. A. Sundin</span><br>2008, 164 matcher</p>
+        <p class="mb-2"><span class="font-semibold">11. J. Bartoli (C)</span><br>2008, 73 matcher</p>
+        <p class="mb-2"><span class="font-semibold">12. J. Folstad</span><br>2008, 73 matcher</p>
+        <p class="mb-2"><span class="font-semibold">15. M. Eidehall</span><br>2008, 184 matcher</p>
+        <p class="mb-2"><span class="font-semibold">23. V. Sundin</span><br>2008, 185 matcher<br><span class="text-xs text-gray-400">(104 som målvakt)</span></p>
+      </div>
+    </div>
 
-<!-- MOBILVERSION – LISTA -->
-<section class="block md:hidden bg-[##E4E4E4] py-10 px-4 font-source">
-  <div class="max-w-[970px] mx-auto text-left">
-    <h4 class="text-[20px]  font-cormorant text-[#A68F55] mb-2">Målvakt</h4>
-    <ul class="mb-6 space-y-1">
-      <li>V. Mattsson</li>
-    </ul>
-
-    <h4 class="text-[20px]  font-cormorant text-[#A68F55] mb-2">Försvarare</h4>
-    <ul class="mb-6 space-y-1">
-      <li>2. P. Kenney</li>
-      <li>5. J. Kenney</li>
-      <li>8. F. Jäätmaa (A)</li>
-    </ul>
-
-    <h4 class="text-[20px]  font-cormorant text-[#A68F55] mb-2">Mittfältare</h4>
-    <ul class="mb-6 space-y-1">
-      <li>7. A. Sundin</li>
-      <li>11. J. Bartoli (C)</li>
-      <li>12. J. Folstad</li>
-      <li>15. M. Eidehall</li>
-      <li>23. V. Sundin</li>
-    </ul>
-
-    <h4 class="text-[20px]  font-cormorant text-[#A68F55] mb-2">Anfallare</h4>
-    <ul class="mb-6 space-y-1">
-      <li>14. R. Hansson</li>
-      <li>21. V. Köpcke</li>
-      <li>22. A. Haanpää</li>
-    </ul>
+    <!-- Anfallare -->
+    <div>
+      <button @click="open === 4 ? open = null : open = 4" class="w-full text-left text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">
+        Anfallare
+      </button>
+      <div x-show="open === 4" x-collapse>
+        <p class="mb-2"><span class="font-semibold">14. R. Hansson</span><br>2011, 137 matcher<br><span class="text-xs text-gray-400">(4 som målvakt)</span></p>
+        <p class="mb-2"><span class="font-semibold">21. V. Köpcke</span><br>2008, 148 matcher</p>
+        <p class="mb-2"><span class="font-semibold">22. A. Haanpää</span><br>2008, 171 matcher</p>
+      </div>
+    </div>
 
     <!-- Pensionerade -->
-    <h4 class="text-[20px] font-cormorant text-[#A68F55] mb-2 mt-8">Pensionerade</h4>
-    <ul class="space-y-1 text-sm italic text-gray-500">
-      <li>J. Agnepil</li>
-      <li>N. Lindström</li>
-      <li>M. Nygren</li>
-      <li>M. Roupe</li>
-      <li>10. S. Söder</li>
-    </ul>
+    <div>
+      <button @click="open === 5 ? open = null : open = 5" class="w-full text-left text-[18px] uppercase font-cormorant text-[#A68F55] mb-2">
+        Pensionerade
+      </button>
+      <div x-show="open === 5" x-collapse>
+        <p class="mb-2"><span class="font-semibold">J. Agnepil</span><br>2008–2014, 56 matcher</p>
+        <p class="mb-2"><span class="font-semibold">N. Lindström</span><br>2008–2010, 31 matcher</p>
+        <p class="mb-2"><span class="font-semibold">M. Nygren</span><br>2008, 4 matcher</p>
+        <p class="mb-2"><span class="font-semibold">M. Roupe</span><br>2011–2016, 44 matcher</p>
+        <p class="mb-2"><span class="font-semibold">10. S. Söder</span><br>2011, 126 matcher</p>
+      </div>
+    </div>
   </div>
+      <!-- UNDRE LINJE -->
+    <div class="mt-[60px]">
+      <hr class="border-t border-[#C2B59B]" />
+    </div>
+    
+<div x-data="{ open: false }" class="mb-6">
+
+  <!-- RUBRIK -->
+  <button @click="open = !open" class="w-full flex justify-between items-center text-left font-cormorant text-[24px] uppercase text-[#A68F55] mb-6">
+    <span>Laguppställning 2025</span>
+    <span x-text="open ? '–' : '+'" class="text-[28px] leading-none font-normal"></span>
+  </button>
+
+      <!-- FÄLLBART INNEHÅLL -->
+      <div x-show="open" x-collapse>
+
+        <!-- PLAN + SPELARE I SAMMA RELATIVE -->
+        <div class="relative w-full max-w-[970px] h-[920px] mx-auto">
+
+          <!-- PLANBILD -->
+          <img
+            src="/assets/pitch2.png"
+            alt="Fotbollsplan horisontell"
+            class="absolute inset-0 w-full h-full object-contain transform -rotate-90 opacity-30"
+          />
+
+          <!-- SPELARE (nu inne i samma relative-container) -->
+          <div class="absolute inset-0 z-10 text-sm text-gray-800 font-source px-4">
+
+            <!-- MÅLVAKT -->
+            <div class="absolute top-1/2 left-[6%] -translate-y-1/2 text-center">
+              <h4 class="text-[20px] font-cormorant text-[#A68F55] mb-2">Målvakt</h4>
+              <p>1. V. Mattsson</p>
+            </div>
+
+            <!-- FÖRSVARARE -->
+            <div class="absolute top-1/2 left-[24%] -translate-y-1/2 text-center">
+              <h4 class="text-[20px] font-cormorant text-[#A68F55] mb-2">Försvarare</h4>
+              <div class="flex flex-col gap-1">
+                <p>2. P. Kenney</p>
+                <p>5. J. Kenney</p>
+                <p>8. F. Jäätmaa (A)</p>
+              </div>
+            </div>
+
+            <!-- MITTFÄLTARE -->
+            <div class="absolute top-1/2 left-[50%] -translate-y-1/2 text-center">
+              <h4 class="text-[20px] font-cormorant text-[#A68F55] mb-2">Mittfältare</h4>
+              <div class="flex flex-col gap-1">
+                <p>7. A. Sundin</p>
+                <p>11. J. Bartoli (C)</p>
+                <p>12. J. Folstad</p>
+                <p>15. M. Eidehall</p>
+                <p>23. V. Sundin</p>
+              </div>
+            </div>
+
+            <!-- ANFALLARE -->
+            <div class="absolute top-1/2 left-[76%] -translate-y-1/2 text-center">
+              <h4 class="text-[20px] font-cormorant text-[#A68F55] mb-2">Anfallare</h4>
+              <div class="flex flex-col gap-1">
+                <p>14. R. Hansson</p>
+                <p>21. V. Köpcke</p>
+                <p>22. A. Haanpää</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UNDRE LINJE -->
+        <div class="mt-[60px] max-w-[970px] mx-auto px-4">
+          <hr class="border-t border-[#C2B59B]" />
+        </div>
+
+      </div>
+    </div>
+
+
+  
 </section>
+
 
 
 
@@ -789,7 +904,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,320px)] gap-x-[48px] items-start mb-[5px]">
       
       <!-- Text -->
-      <div class="space-y-6 max-w-[640px]">
+      <div class="space-y-6  max-w-[640px]">
         <h3 class="text-[24px] uppercase font-cormorant text-[#A68F55] mt-2 mb-4">Från idé till identitet</h3>
         <p class="font-source leading-relaxed text-[#0A121A]">
           Namnet <strong>Fiumelago</strong> föddes redan 2008 – inspirerat av italiensk fotboll och ett starkt behov av att låta större än vi var.
@@ -803,9 +918,10 @@
       </div>
 
       <!-- Bild -->
-      <div class="flex flex-col items-center opacity-60 mb-1">
+<div class="flex flex-col items-center opacity-60 pt-6 md:pt-0 mb-1 md:mb-1">
         <img src="/assets/skiss3.png" alt="Skiss av nuvarande Fiumelago-logga med örn och banderoll" class="w-full max-w-[300px]" />
       </div>
+
 
     </div>
 
@@ -820,14 +936,17 @@
         <div class="mb-16 flex flex-col lg:flex-row items-center justify-between relative z-10">
           <div class="w-full lg:w-[48%]">
             <div class="bg-transparent text-black p-6 border-[#ccc] mt-4 lg:mr-4 lg:ml-4 flex flex-col gap-6 font-source">
-
+                            <!-- Årtal – syns bara på mobil -->
+            <div class="block lg:hidden text-center text-[#A68F55] font-cormorant text-[20px] mb-2">
+              2008
+            </div>
               <!-- Logga överst -->
               <div class="flex justify-center">
                 <img src="/assets/Fiumelago2008.png" alt="Första loggan 2008" class="w-28 h-auto" />
               </div>
 
               <!-- Text -->
-              <div class="text-left">
+              <div class="text-center">
                 <p class="text-sm leading-relaxed">
                   Vår första logga, skapad 2008, är en tydlig hyllning till den italienska landslagsskölden...
                 </p>
@@ -842,7 +961,8 @@
                   <img src="/assets/italia.png" alt="Italiens sköld" class="w-[80px] h-auto" />
                   <p class="text-[11px] text-[#666] italic mt-1 text-center">Italien – originalet</p>
                 </div>
-                <div class="text-xl text-[#A68F55] font-cormorant">→</div>
+                <div class="text-xl text-[#A68F55] font-cormorant transform md:rotate-0 rotate-90 transition duration-300">→</div>
+
                 <div class="flex flex-col items-center">
                   <img src="/assets/Fiumelago2008.png" alt="Fiumelago 2008" class="w-[80px] h-auto" />
                   <p class="text-[11px] text-[#666] italic mt-1 text-center">Fiumelago – vår tolkning</p>
@@ -878,14 +998,17 @@
 
           <div class="w-full lg:w-[48%]">
             <div class="bg-transparent text-black p-6 border-[#ccc] mt-4 lg:mr-4 lg:ml-4 flex flex-col gap-6 font-source">
-
+                          <!-- Årtal – syns bara på mobil -->
+            <div class="block lg:hidden text-center text-[#A68F55] font-cormorant text-[20px] mb-2">
+             2011
+            </div>
               <!-- Logga överst -->
               <div class="flex justify-center">
                 <img src="/assets/Fiumelago2011.png" alt="Fiumelago 2011" class="w-28 h-auto" />
               </div>
 
               <!-- Text -->
-              <div class="text-left">
+              <div class="text-center">
                 <p class="text-sm leading-relaxed">
                   2011 var det dags för en ny riktning. Vi lät oss inspireras av West Hams karaktäristiska logga...
                 </p>
@@ -900,7 +1023,8 @@
                   <img src="/assets/westham.png" alt="West Ham-logga" class="w-[80px] h-auto" />
                   <p class="text-[11px] text-[#666] italic mt-1 text-center">West Ham – originalet</p>
                 </div>
-                <div class="text-xl text-[#A68F55] font-cormorant">→</div>
+               <div class="text-xl text-[#A68F55] font-cormorant transform md:rotate-0 rotate-90 transition duration-300">→</div>
+
                 <div class="flex flex-col items-center">
                   <img src="/assets/Fiumelago2011.png" alt="Fiumelago-logga 2011" class="w-[80px] h-auto" />
                   <p class="text-[11px] text-[#666] italic mt-1 text-center">Fiumelago – vår tolkning</p>
@@ -915,14 +1039,17 @@
         <div class="mb-16 flex flex-col lg:flex-row items-center justify-between relative z-10">
           <div class="w-full lg:w-[48%]">
             <div class="bg-transparent text-black p-6 border-[#ccc] mt-4 lg:mr-4 lg:ml-4 flex flex-col gap-6 font-source">
-
+                          <!-- Årtal – syns bara på mobil -->
+            <div class="block lg:hidden text-center text-[#A68F55] font-cormorant text-[20px] mb-2">
+              2020
+            </div>
               <!-- Logga överst -->
               <div class="flex justify-center">
                 <img src="/assets/Fiumelago2020.png" alt="Fiumelago 2020" class="w-28 h-auto" />
               </div>
 
               <!-- Text -->
-              <div class="text-left">
+              <div class="text-center">
                 <p class="text-sm leading-relaxed">
                   2020 tog vi ännu ett kliv i vår visuella resa. Med inspiration från Lazios klassiska örn...
                 </p>
@@ -937,7 +1064,8 @@
                   <img src="/assets/lazio.png" alt="Lazio-logga" class="w-[80px] h-auto" />
                   <p class="text-[11px] text-[#666] italic mt-1 text-center">Lazio – originalet</p>
                 </div>
-                <div class="text-xl text-[#A68F55] font-cormorant">→</div>
+                <div class="text-xl text-[#A68F55] font-cormorant transform md:rotate-0 rotate-90 transition duration-300">→</div>
+
                 <div class="flex flex-col items-center">
                   <img src="/assets/Fiumelago2020.png" alt="Fiumelago-logga 2020" class="w-[80px] h-auto" />
                   <p class="text-[11px] text-[#666] italic mt-1 text-center">Fiumelago – vår tolkning</p>

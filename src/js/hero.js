@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Hämta data
-  fetch(`./data/data.json?ts=${Date.now()}`)
+  fetch(`./src/data/data.json?ts=${Date.now()}`)
     .then(res => res.json())
     .then(data => {
       const idag = new Date();

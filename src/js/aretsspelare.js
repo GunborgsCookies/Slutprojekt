@@ -1,30 +1,30 @@
   const players = [
     {
-      img: '/assets/ar2020folstad.jpg',
+      img: './assets/ar2020folstad.jpg',
       name: 'JoakimFolstad',
       year: '2020',
       text: 'Oumbärlig försvarsklippa med hjärta i varje tackling.'
     },
     {
-      img: '/assets/ar2021eidehall.jpg',
+      img: './assets/ar2021eidehall.jpg',
       name: 'Mathias Eidehall',
       year: '2021',
       text: 'Teknisk begåvning som styrde mittfältet.'
     },
     {
-      img: '/assets/ar2022Hansson.jpg',
+      img: './assets/ar2022Hansson.jpg',
       name: 'Rickard Hansson',
       year: '2022',
       text: 'Fintar, mål och ledarskap i ett och samma paket.'
     },
     {
-      img: '/assets/ar2023kopcke.jpg',
+      img: './assets/ar2023kopcke.jpg',
       name: 'Viktor Kopcke',
       year: '2023',
       text: 'Stabil, taktisk och med enorm arbetskapacitet.'
     },
     {
-      img: '/assets/ar2024Filip.jpg',
+      img: './assets/ar2024Filip.jpg',
       name: 'Filip Jäätmaa',
       year: '2024',
       text: 'Ledarfigur och bolltrygg. En självklar vinnare.'

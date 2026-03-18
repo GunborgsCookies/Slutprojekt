@@ -9,7 +9,7 @@
       "referat": "\n        <h4>Första halvlek</h4>\n        <p>Jag e fan fortfarande halvt euforisk gubbar, vilken jävla kväll! Känslan var att vi alla tillsammans nådde toppfokus ikväll och vi hade det mentala övertaget från minut 1. Bad Blue Boys-nivå på Fiumelago en afton som denna.\n\nMattsson i buren gör 3–4 absurda monsterräddningar och håller oss kvar i matchen. Pat stabil till vänster. Matte stänger ner deras mittfält helt och gör många viktiga bolltransporter.\n\nFoli springer sönder vänsterkanten och serverar bollar på löpande band. Köpcke krigar på topp och vinner många dueller. Alex går in i beast-mode och sätter tonen fysiskt. Alla snackar, alla springer, alla kämpar.\n\nVår 2-3-1-sits sitter redan från start – aggressivt, organiserat, hungrigt.\n</p>\n\n        <h4>Andra halvlek</h4>\n        <p>Vi fortsätter dominera – ännu mer energi. Viktor gör trygg comeback, vårdar boll och stänger ytor. Hasse och Alex växlar upp med löpningar och presspel i varje omställning. Lagets energi är 5/5 – snack, tacklingar, fokus, glöd.\n\n1–0: Anton (Foli) – lite kaos i boxen, men Anton är kylig och placerar in.\n\n2–0: Köpcke (Foli) – klassmål. Foli bryter in centralt och lägger ut till vänster. Köpcke trycker in en stenhård boll i bortre hörnet.\n\n3–0: Fille (Foli) – indirekt frispark. Foli touchar, Fille klipper till. Pang.\n\nEn match kvar. Allt avgörs. Det här laget förtjänar uppflyttning.\n</p>\n\n        <h4>Målgörare</h4>\n        <ul><li>1-0 Anton (Foli)</li><li>2-0 Köpcke (Foli)</li><li>3-0 Fille (Foli)</li></ul>\n\n        <h4>Matchens lirare</h4>\n        <p>Folstad</p>\n        \n      ",
       "spelad": true,
       "arena": "Kvickentorps BP",
-      "logga": "/assets/icons/gruesome.png",
+      "logga": "./assets/icons/gruesome.png",
       "halvlek1": "Jag e fan fortfarande halvt euforisk gubbar, vilken jävla kväll! Känslan var att vi alla tillsammans nådde toppfokus ikväll och vi hade det mentala övertaget från minut 1. Bad Blue Boys-nivå på Fiumelago en afton som denna.\n\nMattsson i buren gör 3–4 absurda monsterräddningar och håller oss kvar i matchen. Pat stabil till vänster. Matte stänger ner deras mittfält helt och gör många viktiga bolltransporter.\n\nFoli springer sönder vänsterkanten och serverar bollar på löpande band. Köpcke krigar på topp och vinner många dueller. Alex går in i beast-mode och sätter tonen fysiskt. Alla snackar, alla springer, alla kämpar.\n\nVår 2-3-1-sits sitter redan från start – aggressivt, organiserat, hungrigt.\n",
       "halvlek2": "Vi fortsätter dominera – ännu mer energi. Viktor gör trygg comeback, vårdar boll och stänger ytor. Hasse och Alex växlar upp med löpningar och presspel i varje omställning. Lagets energi är 5/5 – snack, tacklingar, fokus, glöd.\n\n1–0: Anton (Foli) – lite kaos i boxen, men Anton är kylig och placerar in.\n\n2–0: Köpcke (Foli) – klassmål. Foli bryter in centralt och lägger ut till vänster. Köpcke trycker in en stenhård boll i bortre hörnet.\n\n3–0: Fille (Foli) – indirekt frispark. Foli touchar, Fille klipper till. Pang.\n\nEn match kvar. Allt avgörs. Det här laget förtjänar uppflyttning.\n",
       "malgore": "1-0 Anton (Foli)\n2-0 Köpcke (Foli)\n3-0 Fille (Foli)",
@@ -24,7 +24,7 @@
       "resultat": "4-2",
       "referat": "Fiumelago - bla bla Gärdet seger 4-2!\n\n* Första segern sen 7:e september 2023!\n* Senast vi gjorde fyra mål i en o samma match var 15:e september 2022, då seger 4-2.\n\nKänns som årets serie kommer vara rätt jämn och att konkurrensen är rimlig för oss. Fortsatt prio att sätta defensiven först och sen gå för det framåt när chans på omställningar kommer. Man har tid med boll i år är väl känslan. SS i buren felfri återigen, flera viktiga räddningar o släpper ikväll tror jag inte en enda retur ut trots lurigt blött underlag. Klass!\n\n1-0 Fille (Simon)\nPass snett framåt höger utanför box o undertecknad piskar direkt på ett med vänstersläggan ribba in. Äntligen fick vänstern tysta tvivlarna 🤫\n\n2-0 Matte (Johan)\nRappt hårt lågt skott från distans som går genom folkmassan o in, högst tveksamt ingripande av keepern som försöker stoppa med foten. Bara fortsätta lossa bössa\n\n3-2 Ponne (Malek)\nBara några minuter kvar när Ponne avgör. Smörmacka upp som friställer helt. Iskall vänta ut o sen rulla in till vänster bakom den offrade slipsen\n\n4-2 Matte (frispark)\nNån meter in förbi mittlinjen ska inte va målchans, men när eiden kalibrerat awp vet vi alla att det bara e o gömma sig. Nyper direkt o häxpipan går i hög båge o dyker in via ribban intill högra klykan. World class asset.\n\nMatchens lirare:\nPonne gav vidare till Matte (stadig köttbit fransyska👍) mycket tack vare häxpipan till frispark som högst sannolikt kan landa in som årets mål 👏\n\nNästa vecka 20.30, hörs när det närmar sig! Gn boys",
       "spelad": true,
-      "logga": "/assets/icons/ac.png"
+      "logga": "./assets/icons/ac.png"
     },
     {
       "id": "match_3",
@@ -35,7 +35,7 @@
       "referat": "Tung torsk 0-3 Matchens lirare: Matte -> Jebbe\n\nMatchreferat:\n\n* Första segern sedan 2023!\n* Fyra mål!\n\nFörsta halvlek:\nVi satte pressen direkt.\n\nAndra halvlek:\nPonne avgjorde.\n\nMatchens lirare:\nMatte",
       "spelad": true,
       "arena": "Kvickentorps BP",
-      "logga": "/assets/icons/pichangeros.png"
+      "logga": "./assets/icons/pichangeros.png"
     },
     {
       "id": "match_4",
@@ -46,7 +46,7 @@
       "referat": "",
       "spelad": false,
       "arena": "Kvickentorps BP",
-      "logga": "/assets/icons/lv.png"
+      "logga": "./assets/icons/lv.png"
     },
     {
       "id": "match_5",
@@ -57,7 +57,7 @@
       "referat": "",
       "spelad": false,
       "arena": "Kvickentorps BP",
-      "logga": "/assets/icons/tullingedragons.png"
+      "logga": "./assets/icons/tullingedragons.png"
     },
     {
       "id": "match_6",
@@ -68,7 +68,7 @@
       "referat": "",
       "spelad": false,
       "arena": "Kvickentorps BP",
-      "logga": "/assets/icons/138.png"
+      "logga": "./assets/icons/138.png"
     },
     {
       "id": "match_7",
@@ -79,7 +79,7 @@
       "referat": "",
       "spelad": false,
       "arena": "Kvickentorps BP",
-      "logga": "/assets/icons/tudorarms.png"
+      "logga": "./assets/icons/tudorarms.png"
     },
     {
       "id": "match_8",
@@ -90,7 +90,7 @@
       "referat": "",
       "spelad": false,
       "arena": "Kvickentorps BP",
-      "logga": "/assets/icons/gruesome.png"
+      "logga": "./assets/icons/gruesome.png"
     }
   ]
 }

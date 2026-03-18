@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Hämta data
-  fetch(`./src/data/data.json?ts=${Date.now()}`)
+  fetch('./src/data/data.json?ts=' + Date.now())
     .then(res => res.json())
     .then(data => {
       const idag = new Date();
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       function createMatchCard(match) {
         const { datum, tid, motstandare, resultat, spelad, logga, referat } = match;
         const status = spelad ? "Avslutad match" : "Kommande match";
-        const fiumelagoLogo = "/assets/icons/fiumelago.png";
+        const fiumelagoLogo = "./assets/icons/fiumelago.png";
 
         let resultClass = "";
         if (spelad && resultat) {

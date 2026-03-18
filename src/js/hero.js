@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-[20px]">
               <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                <img src="/assets/fiumelago_logotyp.png" alt="Fiumelago" class="h-16 md:h-20" />
+                <img src="./assets/fiumelago_logotyp.png" alt="Fiumelago" class="h-16 md:h-20" />
                 <div class="text-[32px] md:text-[48px] font-semibold uppercase leading-none">Fiumelago</div>
               </div>
               <div class="text-[28px] md:text-[48px] text-[#A68F55] font-semibold leading-none">vs.</div>

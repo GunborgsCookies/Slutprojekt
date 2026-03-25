@@ -31,8 +31,8 @@
     },
     {
       img: './assets/ar2025eidehall.jpg',
-      name: 'Filip Jäätmaa',
-      year: '2024',
+      name: 'Mathias Eidehall',
+      year: '2025',
       text: 'Ledarfigur och bolltrygg. En självklar vinnare.'
     }
   ];

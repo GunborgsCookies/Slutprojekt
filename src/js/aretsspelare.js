@@ -28,6 +28,12 @@
       name: 'Filip Jäätmaa',
       year: '2024',
       text: 'Ledarfigur och bolltrygg. En självklar vinnare.'
+    },
+    {
+      img: './assets/ar2025eidehall.jpg',
+      name: 'Filip Jäätmaa',
+      year: '2024',
+      text: 'Ledarfigur och bolltrygg. En självklar vinnare.'
     }
   ];
 

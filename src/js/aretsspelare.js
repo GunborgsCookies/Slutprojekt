@@ -30,7 +30,7 @@
       text: 'Ledarfigur och bolltrygg. En självklar vinnare.'
     },
     {
-      img: './assets/ar2025eidehall.jpg',
+      img: './assets/eidehall2025.jpg',
       name: 'Mathias Eidehall',
       year: '2025',
       text: 'Dominant, spelskicklig och med en blick för avgörande ögonblick.'

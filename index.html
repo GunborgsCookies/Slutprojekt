@@ -127,42 +127,43 @@
         <span id="weather-temp" class="text-white text-sm">--°C</span>
       </div>
 
-    <!-- COUNTDOWN OVERLAY -->
-<div
-  id="countdown"
-  class="hidden md:block fixed left-4 top-[38%] -translate-y-1/2 z-50 w-[220px]
-  bg-[#07101e]/95 text-white shadow-xl border-l-[4px] border-[#c9a35a]
-  transition-all duration-300"
->
-  <div class="flex justify-between items-center px-3 py-2 bg-white/5 border-b border-white/10 text-[10px] uppercase tracking-wider font-semibold">
-    <span>FIUMELAGO</span>
-    <span class="text-[#c9a35a]">PREMIÄR</span>
-  </div>
 
-  <div class="px-3 pt-2 text-[10px] uppercase tracking-[0.15em] opacity-70 font-semibold">
-    AVSPARK OM
-  </div>
-
-  <div class="flex gap-1 px-3 py-3">
-    <div class="flex-1 bg-white/5 flex flex-col items-center justify-center py-2">
-      <span id="days" class="text-2xl font-extrabold leading-none">12</span>
-      <span class="text-[10px] opacity-70 font-bold">D</span>
-    </div>
-
-    <div class="flex-1 bg-white/5 flex flex-col items-center justify-center py-2">
-      <span id="hours" class="text-2xl font-extrabold leading-none">06</span>
-      <span class="text-[10px] opacity-70 font-bold">H</span>
-    </div>
-
-    <div class="flex-1 bg-white/5 flex flex-col items-center justify-center py-2">
-      <span id="minutes" class="text-2xl font-extrabold leading-none">14</span>
-      <span class="text-[10px] opacity-70 font-bold">M</span>
-    </div>
-  </div>
-</div>
                                                                   <!-- HERO -->
 <section id="hero" class="relative min-h-[100vh] md:min-h-screen text-white overflow-hidden z-0">
+ <!-- COUNTDOWN OVERLAY -->
+  <div
+    id="countdown"
+    class="hidden xl:block absolute left-8 top-8 z-20 w-[260px]
+    bg-[#07101e]/90 text-white border-l-[4px] border-[#c9a35a]
+    shadow-[0_12px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm
+    transition-all duration-300"
+  >
+    <div class="flex justify-between items-center px-4 py-3 border-b border-white/10 text-[11px] uppercase tracking-[0.14em] font-semibold font-sans">
+      <span>Fiumelago</span>
+      <span class="text-[#c9a35a]">Premiär</span>
+    </div>
 
+    <div class="px-4 pt-3 text-[11px] uppercase tracking-[0.22em] text-white/70 font-semibold font-sans">
+      Avspark om
+    </div>
+
+    <div class="grid grid-cols-3 gap-[1px] px-4 py-4">
+      <div class="bg-white/5 flex flex-col items-center justify-center py-3">
+        <span id="days" class="text-[40px] leading-none font-bold font-sans">12</span>
+        <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">D</span>
+      </div>
+
+      <div class="bg-white/5 flex flex-col items-center justify-center py-3">
+        <span id="hours" class="text-[40px] leading-none font-bold font-sans">06</span>
+        <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">H</span>
+      </div>
+
+      <div class="bg-white/5 flex flex-col items-center justify-center py-3">
+        <span id="minutes" class="text-[40px] leading-none font-bold font-sans">14</span>
+        <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">M</span>
+      </div>
+    </div>
+  </div>
 
   <div class="absolute inset-0 z-0">
 <div class="absolute inset-0 z-0">

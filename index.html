@@ -125,22 +125,56 @@
     <span id="weather-temp">--°C</span>
   </div>
 
-  <!-- HERO -->
-  <section id="hero" class="relative min-h-screen text-white overflow-hidden">
-
-    <div class="absolute inset-0">
-      <div class="w-full h-full bg-cover bg-center"
-           style="background-image: url('./assets/hero_background.png');">
+<!-- HERO -->
+<section id="hero" class="relative min-h-[100vh] md:min-h-screen text-white overflow-hidden z-0">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0">
+      <div
+        class="w-full h-full bg-[#0A121A] bg-cover bg-center bg-no-repeat"
+        style="background-image: url('./assets/hero_background.png');">
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- HERO CONTENT -->
-    <div class="relative z-10 flex flex-col items-center max-w-[970px] mx-auto px-4 pt-[90px] text-center">
-      <div id="match-info"></div>
-      <p id="hero-match-details"></p>
+<!-- INNEHÅLL HERO -->
+<div class="relative z-10 flex flex-col items-center max-w-[970px] mx-auto px-4 pt-[32px] md:pt-[90px] text-center">
+  <div id="match-info" class="w-full"></div>
+  <p id="hero-match-details" class="text-[24px] leading-tight mt-[4px] mb-[32px]"></p>
+
+  <!-- Matchkortsektion -->
+  <div class="relative z-10 mt-[-40px] sm:mt-[90px] px-4 sm:px-0 w-full">
+    <div class="relative max-w-[960px] mx-auto h-[320px] pb-6">
+
+      <!-- Vänster pil -->
+      <button
+        id="prevBtn"
+        class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-[-24px] z-20"
+        aria-label="Föregående match">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      <!-- Swiper -->
+      <swiper-container id="matchcards" init="false" class="w-full h-full"></swiper-container>
+
+      <!-- Höger pil -->
+      <button
+        id="nextBtn"
+        class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-[-24px] z-20"
+        aria-label="Nästa match">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M8.22 19.78a.75.75 0 0 1 0-1.06L13.94 13l-5.72-5.72a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      <!-- Bullets under korten på mobil -->
+      <div class="swiper-pagination hero-pagination sm:hidden absolute bottom-2 left-0 right-0 flex justify-center z-10"></div>
     </div>
-
-  </section>
+  </div>
+</div>
+</section>
 
 
 

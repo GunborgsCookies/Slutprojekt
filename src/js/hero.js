@@ -185,13 +185,19 @@ Object.assign(swiperEl, {
 const kickoffDate = new Date("2026-04-12T15:00:00").getTime();
 
 function updateCountdown() {
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+
+  if (!daysEl || !hoursEl || !minutesEl) return;
+
   const now = new Date().getTime();
   const distance = kickoffDate - now;
 
   if (distance <= 0) {
-    document.getElementById("days").textContent = "00";
-    document.getElementById("hours").textContent = "00";
-    document.getElementById("minutes").textContent = "00";
+    daysEl.textContent = "00";
+    hoursEl.textContent = "00";
+    minutesEl.textContent = "00";
     return;
   }
 
@@ -199,9 +205,9 @@ function updateCountdown() {
   const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((distance / (1000 * 60)) % 60);
 
-  document.getElementById("days").textContent = String(days).padStart(2, "0");
-  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  daysEl.textContent = String(days).padStart(2, "0");
+  hoursEl.textContent = String(hours).padStart(2, "0");
+  minutesEl.textContent = String(minutes).padStart(2, "0");
 }
 
 updateCountdown();
@@ -210,6 +216,8 @@ setInterval(updateCountdown, 30000);
 const countdown = document.getElementById("countdown");
 
 window.addEventListener("scroll", () => {
+  if (!countdown) return;
+
   if (window.scrollY > 450) {
     countdown.classList.add("opacity-0", "-translate-x-4", "pointer-events-none");
   } else {

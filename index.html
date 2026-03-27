@@ -126,6 +126,40 @@
         <i id="weather-icon" class="wi text-xl"></i>
         <span id="weather-temp" class="text-white text-sm">--°C</span>
       </div>
+
+    <!-- COUNTDOWN OVERLAY -->
+<div
+  id="countdown"
+  class="hidden md:block fixed left-4 top-[38%] -translate-y-1/2 z-50 w-[220px]
+  bg-[#07101e]/95 text-white shadow-xl border-l-[4px] border-[#c9a35a]
+  transition-all duration-300"
+>
+  <div class="flex justify-between items-center px-3 py-2 bg-white/5 border-b border-white/10 text-[10px] uppercase tracking-wider font-semibold">
+    <span>FIUMELAGO</span>
+    <span class="text-[#c9a35a]">PREMIÄR</span>
+  </div>
+
+  <div class="px-3 pt-2 text-[10px] uppercase tracking-[0.15em] opacity-70 font-semibold">
+    AVSPARK OM
+  </div>
+
+  <div class="flex gap-1 px-3 py-3">
+    <div class="flex-1 bg-white/5 flex flex-col items-center justify-center py-2">
+      <span id="days" class="text-2xl font-extrabold leading-none">12</span>
+      <span class="text-[10px] opacity-70 font-bold">D</span>
+    </div>
+
+    <div class="flex-1 bg-white/5 flex flex-col items-center justify-center py-2">
+      <span id="hours" class="text-2xl font-extrabold leading-none">06</span>
+      <span class="text-[10px] opacity-70 font-bold">H</span>
+    </div>
+
+    <div class="flex-1 bg-white/5 flex flex-col items-center justify-center py-2">
+      <span id="minutes" class="text-2xl font-extrabold leading-none">14</span>
+      <span class="text-[10px] opacity-70 font-bold">M</span>
+    </div>
+  </div>
+</div>
                                                                   <!-- HERO -->
 <section id="hero" class="relative min-h-[100vh] md:min-h-screen text-white overflow-hidden z-0">
 
@@ -140,37 +174,7 @@
       
       </div>
     </div>
-  <!-- COUNTDOWN -->
-  <div
-    id="hero-countdown"
-    class="absolute left-1/2 top-[18%] md:top-[20%] z-20 w-[320px] max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-2xl border border-white/10 bg-white/10 p-4 shadow-xl backdrop-blur-md opacity-0 pointer-events-none"
-  >
-    <div class="mb-2 text-center text-[10px] uppercase tracking-[0.22em] text-white/55">
-      Countdown
-    </div>
-
-    <div class="grid grid-cols-4 gap-2 text-center text-white">
-      <div class="rounded-xl bg-white/5 px-2 py-3">
-        <div id="cd-days" class="text-2xl font-semibold tabular-nums">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-wider text-white/45">Days</div>
-      </div>
-
-      <div class="rounded-xl bg-white/5 px-2 py-3">
-        <div id="cd-hours" class="text-2xl font-semibold tabular-nums">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-wider text-white/45">Hours</div>
-      </div>
-
-      <div class="rounded-xl bg-white/5 px-2 py-3">
-        <div id="cd-minutes" class="text-2xl font-semibold tabular-nums">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-wider text-white/45">Min</div>
-      </div>
-
-      <div class="rounded-xl bg-white/5 px-2 py-3">
-        <div id="cd-seconds" class="text-2xl font-semibold tabular-nums">00</div>
-        <div class="mt-1 text-[10px] uppercase tracking-wider text-white/45">Sec</div>
-      </div>
-    </div>
-  </div>
+ 
     <!-- INNEHÅLL HERO -->
   <div class="relative z-10 flex flex-col items-center max-w-[970px] mx-auto px-4 pt-[32px] md:pt-[90px] text-center">
 

@@ -182,45 +182,39 @@ Object.assign(swiperEl, {
 
 });
 
-const kickoffDate = new Date("2026-04-12T15:00:00").getTime();
+<!-- COUNTDOWN OVERLAY -->
+<div
+  id="countdown"
+  class="fixed left-6 top-[120px] z-[9999] w-[260px]
+  bg-[#07101e]/95 text-white border-l-[4px] border-[#c9a35a]
+  shadow-[0_12px_30px_rgba(0,0,0,0.35)]
+  backdrop-blur-sm
+  transition-all duration-500 ease-out
+  opacity-0 -translate-x-6"
+>
+  <div class="flex justify-between items-center px-4 py-3 border-b border-white/10 text-[11px] uppercase tracking-[0.14em] font-semibold font-sans">
+    <span>Fiumelago</span>
+    <span class="text-[#c9a35a]">Premiär</span>
+  </div>
 
-function updateCountdown() {
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
+  <div class="px-4 pt-3 text-[11px] uppercase tracking-[0.22em] text-white/70 font-semibold font-sans">
+    Avspark om
+  </div>
 
-  if (!daysEl || !hoursEl || !minutesEl) return;
+  <div class="grid grid-cols-3 gap-[1px] px-4 py-4">
+    <div class="bg-white/5 flex flex-col items-center justify-center py-3">
+      <span id="days" class="text-[40px] leading-none font-bold font-sans">12</span>
+      <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">D</span>
+    </div>
 
-  const now = new Date().getTime();
-  const distance = kickoffDate - now;
+    <div class="bg-white/5 flex flex-col items-center justify-center py-3">
+      <span id="hours" class="text-[40px] leading-none font-bold font-sans">06</span>
+      <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">H</span>
+    </div>
 
-  if (distance <= 0) {
-    daysEl.textContent = "00";
-    hoursEl.textContent = "00";
-    minutesEl.textContent = "00";
-    return;
-  }
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / (1000 * 60)) % 60);
-
-  daysEl.textContent = String(days).padStart(2, "0");
-  hoursEl.textContent = String(hours).padStart(2, "0");
-  minutesEl.textContent = String(minutes).padStart(2, "0");
-}
-
-updateCountdown();
-setInterval(updateCountdown, 30000);
-
-const countdown = document.getElementById("countdown");
-
-window.addEventListener("scroll", () => {
-  if (!countdown) return;
-
-  if (window.scrollY > 450) {
-    countdown.classList.add("opacity-0", "-translate-x-4", "pointer-events-none");
-  } else {
-    countdown.classList.remove("opacity-0", "-translate-x-4", "pointer-events-none");
-  }
-});
+    <div class="bg-white/5 flex flex-col items-center justify-center py-3">
+      <span id="minutes" class="text-[40px] leading-none font-bold font-sans">14</span>
+      <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">M</span>
+    </div>
+  </div>
+</div>

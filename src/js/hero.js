@@ -182,39 +182,3 @@ Object.assign(swiperEl, {
 
 });
 
-<!-- COUNTDOWN OVERLAY -->
-<div
-  id="countdown"
-  class="fixed left-6 top-[120px] z-[9999] w-[260px]
-  bg-[#07101e]/95 text-white border-l-[4px] border-[#c9a35a]
-  shadow-[0_12px_30px_rgba(0,0,0,0.35)]
-  backdrop-blur-sm
-  transition-all duration-500 ease-out
-  opacity-0 -translate-x-6"
->
-  <div class="flex justify-between items-center px-4 py-3 border-b border-white/10 text-[11px] uppercase tracking-[0.14em] font-semibold font-sans">
-    <span>Fiumelago</span>
-    <span class="text-[#c9a35a]">Premiär</span>
-  </div>
-
-  <div class="px-4 pt-3 text-[11px] uppercase tracking-[0.22em] text-white/70 font-semibold font-sans">
-    Avspark om
-  </div>
-
-  <div class="grid grid-cols-3 gap-[1px] px-4 py-4">
-    <div class="bg-white/5 flex flex-col items-center justify-center py-3">
-      <span id="days" class="text-[40px] leading-none font-bold font-sans">12</span>
-      <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">D</span>
-    </div>
-
-    <div class="bg-white/5 flex flex-col items-center justify-center py-3">
-      <span id="hours" class="text-[40px] leading-none font-bold font-sans">06</span>
-      <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">H</span>
-    </div>
-
-    <div class="bg-white/5 flex flex-col items-center justify-center py-3">
-      <span id="minutes" class="text-[40px] leading-none font-bold font-sans">14</span>
-      <span class="mt-1 text-[11px] text-white/70 font-semibold font-sans">M</span>
-    </div>
-  </div>
-</div>

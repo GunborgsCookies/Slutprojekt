@@ -1,12 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 <head>
   <link rel="icon" type="image/png" href="./assets/fiumelago_logotyp.png">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Fiumelago - Glädje, passion & hybris sedan 2008</title>
 
   <!-- Tailwind CSS -->
@@ -15,12 +12,11 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
 
-  <!-- Facebook -->
+  <!-- facebook -->
   <meta property="og:title" content="Fiumelago">
   <meta property="og:description" content="- Glädje, passion & hybris sedan 2008">
   <meta property="og:image" content="https://fiumelago.se/assets/fiume_facbook.png">
@@ -30,8 +26,10 @@
   <meta property="og:image:alt" content="Fiumelago">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-
   <link rel="canonical" href="https://fiumelago.se/">
+
+  <!-- Valfri men bra -->
+  <meta property="og:site_name" content="Fiumelago">
 
   <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -39,16 +37,14 @@
   <!-- Väder -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
 
-  <!-- Tabellscroll -->
+  <!-- Tabellscroll-->
   <link href="https://cdn.jsdelivr.net/npm/overlayscrollbars/css/OverlayScrollbars.min.css" rel="stylesheet"/>
 
   <!-- JavaScript -->
   <script src="./src/js/hero.js" defer></script>
-
   <script type="module">
     import { openReferatModal } from './src/js/modal.js';
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   <script src="./src/js/weather.js" defer></script>
   <script src="./src/js/tabellscroll.js" defer></script>
@@ -60,35 +56,25 @@
 </head>
 
 <body class="bg-[#E4E4E4] text-[#0b1a2d] font-cormorant">
-
-  <!-- HEADER -->
   <header class="h-[100px] sticky top-0 z-50 bg-[#0A121A] text-white">
     <div class="w-full flex items-center justify-between flex-wrap px-6 md:px-32 h-full gap-4">
-
       <a href="#" class="relative group flex-shrink-0 flex items-center gap-2 min-w-0 overflow-visible">
-        
         <!-- Tooltip -->
         <span class="absolute top-full mt-1 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50 whitespace-nowrap">
           Hem
         </span>
 
-        <!-- Logotyp -->
+        <!-- Logotyp + text -->
         <img src="./assets/fiumelago_logotyp.png" alt="Fiumelago klubbmärke" class="h-[60px] w-auto" />
-
-        <!-- Text -->
         <div class="leading-tight text-left overflow-hidden">
-          <h1 class="text-center text-[32px] md:text-[48px] font-medium uppercase truncate">
-            Fiumelago
-          </h1>
-          <p class="text-center text-[10px] md:text-[12px] font-medium truncate">
-            Glädje, passion & hybris sedan 2008
-          </p>
+          <h1 class="text-center text-[32px] md:text-[48px] font-medium uppercase truncate">Fiumelago</h1>
+          <p class="text-center text-[10px] md:text-[12px] font-medium truncate">Glädje, passion & hybris sedan 2008</p>
         </div>
       </a>
 
       <!-- DESKTOPMENY -->
       <div class="hidden md:flex items-center gap-6 ml-auto">
-        <nav class="flex gap-[20px] text-[14px] font-semibold uppercase tracking-[0.05em]">
+        <nav aria-label="Huvudmeny" class="flex gap-[20px] text-[14px] font-semibold uppercase tracking-[0.05em]">
           <a href="#nyheter" class="hover:text-[#A68F55]">Nyheter</a>
           <a href="#laget" class="hover:text-[#A68F55]">Laget</a>
           <a href="#historia" class="hover:text-[#A68F55]">Historia</a>
@@ -97,85 +83,83 @@
         </nav>
       </div>
 
-      <!-- MOBILKNAPP -->
+      <!-- HAMBURGERKNAPP (mobil) -->
       <div class="md:hidden flex items-center ml-auto">
-        <button id="menu-toggle" class="z-[10001] w-7 h-7">
-          ☰
+        <button id="menu-toggle" class="z-[10001] flex items-center justify-center w-7 h-7" aria-label="Meny" aria-controls="mobile-menu" aria-expanded="false">
+          <!-- Hamburger -->
+          <svg id="hamburger-icon" class="w-7 h-7 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+
+          <!-- Stäng-ikon -->
+          <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
-
     </div>
   </header>
 
   <!-- MOBILMENY -->
-  <nav id="mobile-menu" class="hidden fixed top-[100px] left-0 w-full h-[calc(100vh-100px)] bg-[#0A121A] flex flex-col items-center justify-center gap-6 text-white text-lg uppercase z-[60]">
-    <a href="#hero">Hem</a>
-    <a href="#nyheter">Nyheter</a>
-    <a href="#laget">Laget</a>
-    <a href="#historia">Historia</a>
-    <a href="#trophy-room">Trophy Room</a>
-    <a href="#kontakt">Kontakt</a>
+  <nav id="mobile-menu" aria-label="Mobilmeny" class="hidden fixed top-[100px] left-0 w-full h-[calc(100vh-100px)] bg-[#0A121A] flex flex-col items-center justify-center gap-6 text-white text-lg font-semibold uppercase z-[60]">
+    <a href="#hero" class="hover:text-[#A68F55]">Hem</a>
+    <a href="#nyheter" class="hover:text-[#A68F55]">Nyheter</a>
+    <a href="#laget" class="hover:text-[#A68F55]">Laget</a>
+    <a href="#historia" class="hover:text-[#A68F55]">Historia</a>
+    <a href="#trophy-room" class="hover:text-[#A68F55]">Trophy Room</a>
+    <a href="#kontakt" class="hover:text-[#A68F55]">Kontakt</a>
   </nav>
 
-  <!-- VÄDER -->
-  <div id="weather-widget" class="fixed bottom-4 right-4 z-50 bg-[#0A121A]/80 text-white px-4 py-2 flex items-center gap-2">
-    <button id="close-weather">&times;</button>
-    <span>Väder</span>
-    <i id="weather-icon"></i>
-    <span id="weather-temp">--°C</span>
+  <!-- Väder-widget -->
+  <div id="weather-widget" class="fixed bottom-4 right-4 z-50 bg-[#0A121A]/80 backdrop-blur-md text-white text-sm px-4 py-2 flex items-center gap-2">
+    <button id="close-weather" class="text-white text-xs hover:text-[#A68F55]">&times;</button>
+    <span class="text-xs uppercase tracking-wide text-white/50">Väder</span>
+    <i id="weather-icon" class="wi text-xl"></i>
+    <span id="weather-temp" class="text-white text-sm">--°C</span>
   </div>
 
-<!-- HERO -->
-<section id="hero" class="relative min-h-[100vh] md:min-h-screen text-white overflow-hidden z-0">
-  <div class="absolute inset-0 z-0">
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-[100vh] md:min-h-screen text-white overflow-hidden z-0">
     <div class="absolute inset-0 z-0">
-      <div
-        class="w-full h-full bg-[#0A121A] bg-cover bg-center bg-no-repeat"
-        style="background-image: url('./assets/hero_background.png');">
+      <div class="absolute inset-0 z-0">
+        <div class="w-full h-full bg-[#0A121A] bg-cover bg-center bg-no-repeat" style="background-image: url('./assets/hero_background.png');">
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- INNEHÅLL HERO -->
-<div class="relative z-10 flex flex-col items-center max-w-[970px] mx-auto px-4 pt-[32px] md:pt-[90px] text-center">
-  <div id="match-info" class="w-full"></div>
-  <p id="hero-match-details" class="text-[24px] leading-tight mt-[4px] mb-[32px]"></p>
-
-  <!-- Matchkortsektion -->
-  <div class="relative z-10 mt-[-40px] sm:mt-[90px] px-4 sm:px-0 w-full">
-    <div class="relative max-w-[960px] mx-auto h-[320px] pb-6">
-
-      <!-- Vänster pil -->
-      <button
-        id="prevBtn"
-        class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-[-24px] z-20"
-        aria-label="Föregående match">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors" viewBox="0 0 24 24" fill="currentColor">
-          <path fill-rule="evenodd" d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z" clip-rule="evenodd" />
-        </svg>
-      </button>
-
-      <!-- Swiper -->
-      <swiper-container id="matchcards" init="false" class="w-full h-full"></swiper-container>
-
-      <!-- Höger pil -->
-      <button
-        id="nextBtn"
-        class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-[-24px] z-20"
-        aria-label="Nästa match">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors" viewBox="0 0 24 24" fill="currentColor">
-          <path fill-rule="evenodd" d="M8.22 19.78a.75.75 0 0 1 0-1.06L13.94 13l-5.72-5.72a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z" clip-rule="evenodd" />
-        </svg>
-      </button>
-
-      <!-- Bullets under korten på mobil -->
-      <div class="swiper-pagination hero-pagination sm:hidden absolute bottom-2 left-0 right-0 flex justify-center z-10"></div>
     </div>
-  </div>
-</div>
-</section>
 
+    <!-- INNEHÅLL HERO -->
+    <div class="relative z-10 flex flex-col items-center max-w-[970px] mx-auto px-4 pt-[32px] md:pt-[90px] text-center">
+      <div id="match-info" class="w-full"></div>
+      <p id="hero-match-details" class="text-[24px] leading-tight mt-[4px] mb-[32px]"></p>
+
+      <!-- Matchkortsektion -->
+      <div class="relative z-10 mt-[-40px] sm:mt-[90px] px-4 sm:px-0 w-full">
+        <div class="relative max-w-[960px] mx-auto h-[320px] pb-6">
+          <!-- Vänster pil -->
+          <button id="prevBtn" class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-[-24px] z-20" aria-label="Föregående match">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" d="M15.78 4.22a.75.75 0 0 1 0 1.06L10.06 11l5.72 5.72a.75.75 0 1 1-1.06 1.06l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 0 1 1.06 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+
+          <!-- Swiper -->
+          <swiper-container id="matchcards" init="false" class="w-full h-full"></swiper-container>
+
+          <!-- Höger pil -->
+          <button id="nextBtn" class="hidden sm:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-[-24px] z-20" aria-label="Nästa match">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#A68F55] hover:text-[#8C773F] transition-colors" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" d="M8.22 19.78a.75.75 0 0 1 0-1.06L13.94 13l-5.72-5.72a.75.75 0 0 1 1.06-1.06l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+
+          <!-- Bullets under korten på mobil -->
+          <div class="swiper-pagination hero-pagination sm:hidden absolute bottom-2 left-0 right-0 flex justify-center z-10"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
 
 
                                                                        <!-- MODAL-->

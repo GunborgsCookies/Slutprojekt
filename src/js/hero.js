@@ -34,20 +34,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Hämta data
   fetch('./src/data/data.json?ts=' + Date.now())
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`Kunde inte hämta data.json: ${res.status}`);
+      }
+      return res.json();
+    })
     .then(data => {
+
       const idag = new Date();
       idag.setHours(0, 0, 0, 0);
 
+      // Hitta första ospelade matchen som ligger idag eller längre fram
       const kommande = data.matcher.find(m => {
-        const matchDate = new Date(m.datum);
-        return !m.spelad && matchDate >= idag;
+        if (m.spelad === true) return false;
+
+        // Skapa datumet lokalt för att undvika timezone-problem
+        const [år, månad, dag] = m.datum.split("-").map(Number);
+        const matchDate = new Date(år, månad - 1, dag);
+        matchDate.setHours(0, 0, 0, 0);
+
+        return matchDate >= idag;
       });
+
+      console.log("📅 Idag:", idag);
+      console.log("⚽ Kommande match:", kommande);
 
       const container = document.getElementById("match-info");
 
-      if (kommande) {
-        const datumFormaterat = new Date(kommande.datum).toLocaleDateString("sv-SE", {
+      if (kommande && container) {
+        const [år, månad, dag] = kommande.datum.split("-").map(Number);
+        const matchDate = new Date(år, månad - 1, dag);
+
+        const datumFormaterat = matchDate.toLocaleDateString("sv-SE", {
           weekday: "long",
           day: "numeric",
           month: "long",
@@ -81,6 +100,16 @@ document.addEventListener("DOMContentLoaded", () => {
             </a>
           </div>
         `;
+      } else if (container) {
+        container.innerHTML = `
+          <div class="flex flex-col items-center gap-[12px] mt-[48px] mb-[32px] text-center">
+            <div class="text-[#A68F55] text-[40px] md:text-[56px] font-semibold uppercase leading-none">
+              Ingen kommande match
+            </div>
+          </div>
+        `;
+
+        console.warn("⚠️ Ingen kommande match hittades.");
       }
 
       // Skapa matchkort (HTML-sträng)
@@ -119,47 +148,48 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         `;
       }
-    customElements.whenDefined("swiper-container").then(() => {
-        const swiperEl = document.querySelector("#matchcards");
-Object.assign(swiperEl, {
-  slidesPerView: 1,
-  spaceBetween: 12,
-  centeredSlides: true,
-  pagination: {
-    el: '.hero-pagination',
-    clickable: true,
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 12,
-      centeredSlides: false,
-    },
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 16,
-      centeredSlides: false,
-    },
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 20,
-      centeredSlides: false,
-    },
-    1280: {
-      slidesPerView: 5,
-      spaceBetween: 24,
-      centeredSlides: false,
-    },
-  },
-  virtual: {
-    slides: data.matcher.map(createMatchCard),
-  },
-  navigation: {
-    nextEl: '#nextBtn',
-    prevEl: '#prevBtn',
-  }
-});
 
+      customElements.whenDefined("swiper-container").then(() => {
+        const swiperEl = document.querySelector("#matchcards");
+
+        Object.assign(swiperEl, {
+          slidesPerView: 1,
+          spaceBetween: 12,
+          centeredSlides: true,
+          pagination: {
+            el: '.hero-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 12,
+              centeredSlides: false,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 16,
+              centeredSlides: false,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+              centeredSlides: false,
+            },
+            1280: {
+              slidesPerView: 5,
+              spaceBetween: 24,
+              centeredSlides: false,
+            },
+          },
+          virtual: {
+            slides: data.matcher.map(createMatchCard),
+          },
+          navigation: {
+            nextEl: '#nextBtn',
+            prevEl: '#prevBtn',
+          }
+        });
 
         swiperEl.initialize();
 
@@ -169,6 +199,9 @@ Object.assign(swiperEl, {
           document.getElementById("nextBtn").classList.toggle("invisible", swiper.isEnd);
         });
       });
+    })
+    .catch(error => {
+      console.error("❌ Fel vid hämtning av matchdata:", error);
     });
 
   // Hantera klick på referat-kort
@@ -181,4 +214,3 @@ Object.assign(swiperEl, {
   });
 
 });
-
